@@ -3,1291 +3,335 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Revelación de Género · Wlad & Samy</title>
+  <title>Revelación de Género · Wlad &amp; Samy 👑</title>
+  <meta name="description" content="¡Wlad y Samy te invitan a descubrir si viene un rey o una reina! Revelación de género al estilo El Rey León." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --gold: #F5C842;
-      --amber: #C17F3B;
-      --sienna: #8B3A1A;
-      --orange: #D4521A;
-      --deep: #1A0A00;
-      --cream: #FDF0D5;
-      --sky-blue: #87CEEB;
-      --rose-pink: #FFB6C1;
-      --dark-overlay: rgba(15, 5, 0, 0.55);
-    }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Lora', serif;
-      background: var(--deep);
-      color: var(--cream);
-      overflow-x: hidden;
-    }
-
-    /* ── PARTICLES ── */
-    #particles {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .particle {
-      position: absolute;
-      border-radius: 50%;
-      background: radial-gradient(circle, #F5C84288, transparent);
-      animation: float linear infinite;
-    }
-    @keyframes float {
-      0%   { transform: translateY(110vh) scale(0); opacity: 0; }
-      10%  { opacity: 1; }
-      90%  { opacity: 0.6; }
-      100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
-    }
-
-    /* ── SECTION BASE ── */
-    section {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    /* ══════════════════════════════════
-       HERO
-    ══════════════════════════════════ */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 60px 20px 40px;
-      background:
-        linear-gradient(to bottom, rgba(10,3,0,0.35) 0%, rgba(26,10,0,0.7) 100%),
-        url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1600&q=80') center/cover no-repeat fixed;
-    }
-
-    .hero-paws {
-      font-size: 2rem;
-      letter-spacing: 12px;
-      color: var(--gold);
-      margin-bottom: 16px;
-      animation: fadeDown 1s ease both;
-    }
-
-    .hero-title {
-      font-family: 'Cinzel Decorative', serif;
-      font-size: clamp(2.2rem, 6vw, 4.5rem);
-      font-weight: 900;
-      color: var(--gold);
-      text-shadow: 0 0 40px #F5C84299, 0 4px 20px #8B3A1A;
-      line-height: 1.15;
-      animation: fadeDown 1.2s ease 0.2s both;
-    }
-
-    .hero-subtitle {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(1rem, 2.5vw, 1.5rem);
-      color: var(--cream);
-      margin-top: 18px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      animation: fadeDown 1.2s ease 0.4s both;
-    }
-
-    .hero-divider {
-      margin: 32px auto;
-      width: 220px;
-      height: 2px;
-      background: linear-gradient(to right, transparent, var(--gold), transparent);
-      animation: fadeIn 1.5s ease 0.6s both;
-    }
-
-    .soundcloud-wrap {
-      animation: fadeUp 1.2s ease 0.8s both;
-      width: 100%;
-      max-width: 560px;
-      margin: 0 auto 12px;
-    }
-
-    .soundcloud-wrap iframe {
-      border-radius: 12px;
-      box-shadow: 0 8px 40px #0008;
-    }
-
-    .music-label {
-      font-size: 0.8rem;
-      color: var(--amber);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-top: 6px;
-    }
-
-    .scroll-hint {
-      margin-top: 40px;
-      animation: bounce 2s infinite 2s;
-      color: var(--gold);
-      font-size: 1.8rem;
-    }
-    @keyframes bounce {
-      0%,100% { transform: translateY(0); }
-      50%      { transform: translateY(10px); }
-    }
-
-    /* SVG horizon divider */
-    .horizon {
-      display: block;
-      width: 100%;
-      margin-top: -2px;
-    }
-
-    /* ══════════════════════════════════
-       PARENTS
-    ══════════════════════════════════ */
-    #parents {
-      background: linear-gradient(180deg, #1A0A00 0%, #2D1205 100%);
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    .section-eyebrow {
-      font-family: 'Cinzel', serif;
-      font-size: 0.8rem;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: 12px;
-    }
-
-    .section-title {
-      font-family: 'Cinzel Decorative', serif;
-      font-size: clamp(1.6rem, 4vw, 3rem);
-      color: var(--gold);
-      text-shadow: 0 2px 20px #C17F3B55;
-      margin-bottom: 24px;
-    }
-
-    .parents-names {
-      font-family: 'Cinzel Decorative', serif;
-      font-size: clamp(2rem, 6vw, 4rem);
-      font-weight: 700;
-      color: var(--cream);
-      letter-spacing: 4px;
-      margin: 20px 0;
-    }
-
-    .parents-names span {
-      color: var(--gold);
-    }
-
-    .parents-ampersand {
-      color: var(--sienna);
-      font-size: 3rem;
-      margin: 0 16px;
-    }
-
-    .quote-box {
-      max-width: 680px;
-      margin: 36px auto 0;
-      padding: 32px 40px;
-      border: 1px solid #C17F3B44;
-      border-radius: 4px;
-      position: relative;
-      background: linear-gradient(135deg, #2D120511, #C17F3B0A);
-      backdrop-filter: blur(4px);
-    }
-
-    .quote-box::before,
-    .quote-box::after {
-      content: '"';
-      font-family: 'Cinzel Decorative', serif;
-      font-size: 5rem;
-      color: var(--gold);
-      opacity: 0.25;
-      position: absolute;
-      line-height: 1;
-    }
-    .quote-box::before { top: 8px; left: 16px; }
-    .quote-box::after  { content: '"'; bottom: -10px; right: 16px; }
-
-    .quote-text {
-      font-style: italic;
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      line-height: 1.8;
-      color: var(--cream);
-      opacity: 0.95;
-    }
-
-    .paw-accent { color: var(--gold); font-size: 1.4rem; letter-spacing: 8px; }
-
-    /* ══════════════════════════════════
-       REVEAL
-    ══════════════════════════════════ */
-    #reveal {
-      background: linear-gradient(180deg, #2D1205 0%, #1A0A00 100%);
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    .reveal-sub {
-      font-size: clamp(0.95rem, 2vw, 1.1rem);
-      color: var(--cream);
-      opacity: 0.8;
-      margin-bottom: 48px;
-      letter-spacing: 1px;
-    }
-
-    /* Envelope */
-    .envelope-scene {
-      position: relative;
-      width: 280px;
-      margin: 0 auto 40px;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .envelope-body {
-      width: 280px;
-      height: 190px;
-      background: linear-gradient(145deg, #8B3A1A, #C17F3B);
-      border-radius: 8px 8px 12px 12px;
-      position: relative;
-      box-shadow: 0 20px 60px #0009, 0 0 30px #C17F3B44;
-      transition: transform 0.3s ease;
-    }
-
-    .envelope-scene:hover .envelope-body {
-      transform: scale(1.03);
-    }
-
-    .envelope-flap {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100px;
-      clip-path: polygon(0 0, 50% 55%, 100% 0);
-      background: linear-gradient(160deg, #a8461f, #8B3A1A);
-      transform-origin: top center;
-      transform: rotateX(0deg);
-      transition: transform 0.8s ease;
-      z-index: 2;
-      border-radius: 8px 8px 0 0;
-    }
-
-    .envelope-scene.opened .envelope-flap {
-      transform: rotateX(-180deg);
-    }
-
-    .envelope-bottom-left  { position:absolute; bottom:0; left:0;  width:50%; height:90px; clip-path:polygon(0 100%,100% 100%,0 0); background:linear-gradient(135deg,#7a3116,#9a4520); border-radius:0 0 0 12px; }
-    .envelope-bottom-right { position:absolute; bottom:0; right:0; width:50%; height:90px; clip-path:polygon(0 100%,100% 100%,100% 0); background:linear-gradient(225deg,#7a3116,#9a4520); border-radius:0 0 12px 0; }
-
-    .envelope-seal {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 52px; height: 52px;
-      background: radial-gradient(circle, #F5C842, #C17F3B);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.6rem;
-      box-shadow: 0 0 20px #F5C84266;
-      z-index: 3;
-      transition: opacity 0.4s ease;
-    }
-
-    .envelope-scene.opened .envelope-seal {
-      opacity: 0;
-    }
-
-    /* Photo rising from envelope */
-    .photo-card {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%) translateY(0);
-      width: 200px;
-      background: white;
-      border-radius: 6px;
-      padding: 8px 8px 30px;
-      box-shadow: 0 10px 40px #0008;
-      z-index: 1;
-      transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
-      opacity: 0;
-    }
-
-    .envelope-scene.opened .photo-card {
-      transform: translateX(-50%) translateY(-220px);
-      opacity: 1;
-    }
-
-    .photo-card img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 3px;
-      display: block;
-      filter: sepia(20%) contrast(1.05);
-    }
-
-    .photo-label {
-      text-align: center;
-      margin-top: 8px;
-      font-size: 0.7rem;
-      color: #555;
-      font-style: italic;
-      font-family: 'Lora', serif;
-    }
-
-    .open-hint {
-      margin-top: 16px;
-      font-size: 0.85rem;
-      color: var(--amber);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
-
-    .envelope-scene.opened + .open-hint {
-      display: none;
-    }
-
-    /* Blessing text */
-    .blessing {
-      margin-top: 160px;
-      transition: all 0.8s ease;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    .blessing.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .blessing-title {
-      font-family: 'Cinzel Decorative', serif;
-      font-size: clamp(1.4rem, 4vw, 2.5rem);
-      color: var(--gold);
-      text-shadow: 0 0 30px #F5C84266;
-      margin-bottom: 12px;
-    }
-
-    /* Gender choice buttons */
-    .gender-reveal {
-      margin-top: 40px;
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .gender-btn {
-      padding: 18px 40px;
-      border: 2px solid;
-      border-radius: 50px;
-      font-family: 'Cinzel', serif;
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      cursor: pointer;
-      background: transparent;
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn-boy  { border-color: var(--sky-blue); color: var(--sky-blue); }
-    .btn-girl { border-color: var(--rose-pink); color: var(--rose-pink); }
-
-    .btn-boy:hover, .btn-boy.selected {
-      background: var(--sky-blue);
-      color: var(--deep);
-      box-shadow: 0 0 30px #87CEEBaa;
-    }
-    .btn-girl:hover, .btn-girl.selected {
-      background: var(--rose-pink);
-      color: var(--deep);
-      box-shadow: 0 0 30px #FFB6C1aa;
-    }
-    .btn-whatsapp {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      padding: 18px 44px;
-      background: linear-gradient(135deg, #25D366, #128C7E);
-      color: #fff;
-      font-family: 'Cinzel Decorative', serif;
-      font-size: 0.95rem;
-      letter-spacing: 0.08em;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      text-decoration: none;
-      box-shadow: 0 8px 30px rgba(37,211,102,0.3);
-      transition: all 0.3s ease;
-      font-weight: 700;
-    }
-
-    .btn-whatsapp:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 14px 40px rgba(37,211,102,0.5);
-    }
-
-    .gender-result {
-      margin-top: 40px;
-      padding: 30px;
-      border-radius: 12px;
-      font-family: 'Cinzel Decorative', serif;
-      font-size: clamp(1.8rem, 5vw, 3.5rem);
-      display: none;
-      animation: zoomIn 0.8s cubic-bezier(0.34,1.56,0.64,1);
-    }
-    .gender-result.boy  { color: var(--sky-blue); text-shadow: 0 0 40px #87CEEBaa; background: #87CEEB11; border: 1px solid #87CEEB33; display:none; }
-    .gender-result.girl { color: var(--rose-pink); text-shadow: 0 0 40px #FFB6C1aa; background: #FFB6C111; border: 1px solid #FFB6C133; display:none; }
-    .gender-result.show { display: block; }
-
-    @keyframes zoomIn {
-      from { transform: scale(0.3); opacity:0; }
-      to   { transform: scale(1);   opacity:1; }
-    }
-
-    /* ══════════════════════════════════
-       DETAILS / COUNTDOWN
-    ══════════════════════════════════ */
-    #details {
-      background: linear-gradient(180deg, #1A0A00 0%, #2D1205 100%);
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    .details-grid {
-      display: flex;
-      gap: 24px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 36px 0;
-    }
-
-    .detail-card {
-      background: linear-gradient(135deg, #2D120588, #C17F3B11);
-      border: 1px solid #C17F3B33;
-      border-radius: 12px;
-      padding: 28px 36px;
-      min-width: 180px;
-      transition: transform 0.3s;
-    }
-    .detail-card:hover { transform: translateY(-6px); }
-
-    .detail-icon { font-size: 2.2rem; margin-bottom: 10px; }
-    .detail-label {
-      font-size: 0.75rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: 6px;
-    }
-    .detail-value {
-      font-family: 'Cinzel', serif;
-      font-size: 1.1rem;
-      color: var(--cream);
-      font-weight: 600;
-    }
-
-    /* Countdown */
-    .countdown {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 48px;
-    }
-
-    .count-block {
-      text-align: center;
-      background: linear-gradient(145deg, #2D1205, #1A0A00);
-      border: 1px solid var(--amber);
-      border-radius: 10px;
-      padding: 20px 24px;
-      min-width: 90px;
-      box-shadow: 0 0 20px #C17F3B22;
-    }
-
-    .count-number {
-      font-family: 'Cinzel Decorative', serif;
-      font-size: 2.6rem;
-      color: var(--gold);
-      line-height: 1;
-      text-shadow: 0 0 20px #F5C84266;
-    }
-
-    .count-label {
-      font-size: 0.7rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--amber);
-      margin-top: 6px;
-    }
-
-    /* ══════════════════════════════════
-       LOCATION
-    ══════════════════════════════════ */
-    #location {
-      background: linear-gradient(180deg, #2D1205 0%, #1A0A00 100%);
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    .location-name {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(1.1rem, 3vw, 1.6rem);
-      color: var(--cream);
-      margin: 20px 0 8px;
-      line-height: 1.6;
-    }
-
-    .maps-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 28px;
-      padding: 16px 40px;
-      background: linear-gradient(135deg, var(--orange), var(--sienna));
-      color: var(--cream);
-      text-decoration: none;
-      font-family: 'Cinzel', serif;
-      font-size: 1rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      border-radius: 50px;
-      box-shadow: 0 8px 30px #D4521A55;
-      transition: all 0.3s ease;
-    }
-    .maps-btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 14px 40px #D4521A77;
-    }
-
-    /* ══════════════════════════════════
-       ITINERARY
-    ══════════════════════════════════ */
-    #itinerary {
-      background: linear-gradient(180deg, #1A0A00 0%, #2D1205 100%);
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    .timeline {
-      max-width: 600px;
-      margin: 48px auto 0;
-      position: relative;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 50%;
-      top: 0; bottom: 0;
-      width: 2px;
-      background: linear-gradient(to bottom, transparent, var(--amber), var(--gold), var(--amber), transparent);
-      transform: translateX(-50%);
-    }
-
-    .timeline-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 40px;
-      position: relative;
-    }
-
-    .timeline-item:nth-child(odd)  { flex-direction: row-reverse; }
-
-    .timeline-dot {
-      width: 52px; height: 52px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--orange), var(--gold));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem;
-      flex-shrink: 0;
-      box-shadow: 0 0 20px #F5C84266;
-      position: relative;
-      z-index: 1;
-    }
-
-    .timeline-content {
-      background: linear-gradient(135deg, #2D120566, #1A0A0066);
-      border: 1px solid #C17F3B33;
-      border-radius: 10px;
-      padding: 16px 22px;
-      width: calc(50% - 50px);
-      text-align: left;
-    }
-
-    .timeline-item:nth-child(odd) .timeline-content { text-align: right; }
-
-    .tl-title {
-      font-family: 'Cinzel', serif;
-      font-size: 1rem;
-      color: var(--gold);
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-    .tl-desc {
-      font-size: 0.85rem;
-      color: var(--cream);
-      opacity: 0.75;
-      line-height: 1.5;
-    }
-
-    /* ══════════════════════════════════
-       DRESS CODE
-    ══════════════════════════════════ */
-    #dresscode {
-      background: linear-gradient(180deg, #2D1205 0%, #1A0A00 100%);
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    .dress-cards {
-      display: flex;
-      gap: 24px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 40px;
-    }
-
-    .dress-card {
-      border-radius: 16px;
-      padding: 36px 32px;
-      width: 240px;
-      transition: transform 0.3s;
-    }
-    .dress-card:hover { transform: translateY(-8px) rotate(1deg); }
-
-    .dress-card.boy  { background: linear-gradient(145deg, #1a4a6e, #2a7ab0); border: 2px solid var(--sky-blue); box-shadow: 0 10px 40px #87CEEB33; }
-    .dress-card.girl { background: linear-gradient(145deg, #6e1a3a, #b02a5a); border: 2px solid var(--rose-pink); box-shadow: 0 10px 40px #FFB6C133; }
-
-    .dress-icon { font-size: 3rem; margin-bottom: 14px; }
-
-    .dress-team {
-      font-family: 'Cinzel Decorative', serif;
-      font-size: 1.3rem;
-      color: white;
-      margin-bottom: 10px;
-    }
-
-    .dress-card.boy  .dress-team { color: var(--sky-blue); }
-    .dress-card.girl .dress-team { color: var(--rose-pink); }
-
-    .dress-desc {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.85);
-      line-height: 1.6;
-    }
-
-    /* ══════════════════════════════════
-       GIFTS
-    ══════════════════════════════════ */
-    #gifts {
-      background: linear-gradient(180deg, #1A0A00 0%, #2D1205 100%);
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    .gifts-box {
-      max-width: 600px;
-      margin: 32px auto 0;
-      background: linear-gradient(135deg, #2D120544, #C17F3B0A);
-      border: 1px solid #C17F3B33;
-      border-radius: 16px;
-      padding: 40px;
-    }
-
-    .gifts-icon { font-size: 4rem; margin-bottom: 16px; }
-
-    .gifts-text {
-      font-size: clamp(0.95rem, 2vw, 1.1rem);
-      line-height: 1.9;
-      color: var(--cream);
-      opacity: 0.9;
-    }
-
-    /* ══════════════════════════════════
-       RSVP
-    ══════════════════════════════════ */
-    #rsvp {
-      background: linear-gradient(180deg, #2D1205 0%, #1A0A00 100%);
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    .rsvp-note {
-      max-width: 560px;
-      margin: 20px auto 36px;
-      font-size: clamp(0.95rem, 2vw, 1.1rem);
-      line-height: 1.8;
-      color: var(--cream);
-      opacity: 0.85;
-    }
-
-    .rsvp-form {
-      max-width: 480px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .rsvp-input {
-      background: #2D120566;
-      border: 1px solid #C17F3B55;
-      border-radius: 8px;
-      padding: 16px 20px;
-      color: var(--cream);
-      font-family: 'Lora', serif;
-      font-size: 1rem;
-      outline: none;
-      transition: border-color 0.3s;
-      width: 100%;
-    }
-    .rsvp-input::placeholder { color: rgba(253,240,213,0.4); }
-    .rsvp-input:focus { border-color: var(--gold); }
-
-    .rsvp-select {
-      background: #2D1205;
-      border: 1px solid #C17F3B55;
-      border-radius: 8px;
-      padding: 16px 20px;
-      color: var(--cream);
-      font-family: 'Lora', serif;
-      font-size: 1rem;
-      outline: none;
-      transition: border-color 0.3s;
-      width: 100%;
-      appearance: none;
-      cursor: pointer;
-    }
-    .rsvp-select:focus { border-color: var(--gold); }
-    .rsvp-select option { background: #2D1205; }
-
-    .rsvp-btn {
-      padding: 18px;
-      background: linear-gradient(135deg, var(--gold), var(--amber));
-      color: var(--deep);
-      font-family: 'Cinzel', serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 30px #F5C84255;
-    }
-    .rsvp-btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 14px 40px #F5C84277;
-    }
-
-    .rsvp-success {
-      display: none;
-      margin-top: 24px;
-      padding: 24px;
-      background: #2D1205;
-      border: 1px solid var(--gold);
-      border-radius: 12px;
-      font-family: 'Cinzel', serif;
-      font-size: 1.1rem;
-      color: var(--gold);
-    }
-
-    /* ══════════════════════════════════
-       FOOTER
-    ══════════════════════════════════ */
-    footer {
-      background: #0D0500;
-      text-align: center;
-      padding: 40px 20px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .footer-paw { font-size: 2rem; letter-spacing: 10px; color: var(--amber); opacity: 0.5; }
-    .footer-text {
-      margin-top: 12px;
-      font-family: 'Cinzel', serif;
-      font-size: 0.75rem;
-      letter-spacing: 3px;
-      color: var(--amber);
-      opacity: 0.5;
-      text-transform: uppercase;
-    }
-
-    /* ══════════════════════════════════
-       SCROLL ANIMATIONS
-    ══════════════════════════════════ */
-    .reveal-on-scroll {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .reveal-on-scroll.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @keyframes fadeDown {
-      from { opacity:0; transform: translateY(-30px); }
-      to   { opacity:1; transform: translateY(0); }
-    }
-    @keyframes fadeUp {
-      from { opacity:0; transform: translateY(30px); }
-      to   { opacity:1; transform: translateY(0); }
-    }
-    @keyframes fadeIn {
-      from { opacity:0; }
-      to   { opacity:1; }
-    }
-
-    /* ══════════════════════════════════
-       RESPONSIVE
-    ══════════════════════════════════ */
-    @media (max-width: 600px) {
-      .timeline::before { left: 24px; }
-      .timeline-item,
-      .timeline-item:nth-child(odd) { flex-direction: column; align-items: flex-start; padding-left: 60px; }
-      .timeline-dot { position: absolute; left: 0; }
-      .timeline-content,
-      .timeline-item:nth-child(odd) .timeline-content { width: 100%; text-align: left; }
-      .parents-names { font-size: 1.8rem; }
-      .parents-ampersand { display: block; margin: 0; }
-    }
-  </style>
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<!-- Floating particles -->
-<canvas id="particles"></canvas>
-
-<!-- ══════════════ HERO ══════════════ -->
-<section id="hero">
-  <div class="hero-paws">🐾 🦁 🐾</div>
-  <h1 class="hero-title">Nuestro Bebé<br>Está en Camino</h1>
-  <p class="hero-subtitle">Revelación de Género · Wlad &amp; Samy</p>
-  <div class="hero-divider"></div>
-
-  <div class="soundcloud-wrap">
-    <iframe width="80%" height="100" scrolling="no" frameborder="no" allow="autoplay"
-      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A629110608&color=%23573515&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+  <!-- ══════════════ VIDEO BACKGROUND ══════════════
+       YouTube video of "Circle of Life" / African savannah.
+       autoplay=1&mute=1&loop=1&controls=0&playlist=<VIDEO_ID>
+       keeps it playing silently in a fixed layer behind everything.
+  ═══════════════════════════════════════════════════ -->
+  <div id="video-bg">
+    <iframe
+      src="https://www.youtube.com/embed/5qYjzNv-WoA?autoplay=1&mute=1&loop=1&controls=0&playlist=5qYjzNv-WoA&rel=0&showinfo=0&modestbranding=1&iv_load_policy=3&disablekb=1"
+      title="Lion King Background"
+      allow="autoplay; encrypted-media"
+      allowfullscreen
+      loading="lazy">
     </iframe>
-    <p class="music-label">🎵 El Rey León · Música oficial</p>
   </div>
+  <!-- Semi-transparent dark overlay so content stays readable -->
+  <div id="video-overlay"></div>
 
-  <div class="scroll-hint">⬇</div>
-</section>
+  <!-- Floating golden particles -->
+  <canvas id="particles"></canvas>
 
-<!-- horizon svg -->
-<svg class="horizon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;background:#2D1205">
-  <path fill="#1A0A00" d="M0,40 Q180,80 360,40 Q540,0 720,40 Q900,80 1080,40 Q1260,0 1440,40 L1440,0 L0,0 Z"/>
-</svg>
+  <!-- ══════════════ HERO ══════════════ -->
+  <section id="hero">
+    <div class="hero-paws">🐾 🦁 🐾</div>
+    <h1 class="hero-title">Un Nuevo Cachorro<br>Está en Camino</h1>
+    <p class="hero-subtitle">Revelación de Género · Wlad &amp; Samy</p>
+    <div class="hero-divider"></div>
 
-<!-- ══════════════ PARENTS ══════════════ -->
-<section id="parents">
-  <div class="reveal-on-scroll">
-    <p class="section-eyebrow">🌅 Los Orgullosos Padres</p>
-    <h2 class="section-title">Con todo el amor del Círculo de la Vida</h2>
-    <div class="paw-accent">🐾 🦁 🐾</div>
-    <div class="parents-names">
-      <span>Wlad</span>
-      <span class="parents-ampersand"> &amp; </span>
-      <span>Samy</span>
+    <div class="soundcloud-wrap">
+      <iframe
+        width="80%" height="100"
+        scrolling="no" frameborder="no" allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A629110608&color=%23573515&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+      </iframe>
+      <p class="music-label">🎵 El Rey León · Música oficial</p>
     </div>
-    <div class="quote-box">
-      <p class="quote-text">
-        Recuerda quién eres, mi tesoro: eres mi bebé, mi orgullo,<br>
-        el futuro rey o reina de nuestros corazones.
+
+    <div class="scroll-hint">⬇</div>
+  </section>
+
+  <!-- Wave divider -->
+  <svg class="horizon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none" style="background:transparent">
+    <path fill="rgba(26,10,0,0.6)" d="M0,40 Q180,80 360,40 Q540,0 720,40 Q900,80 1080,40 Q1260,0 1440,40 L1440,0 L0,0 Z"/>
+  </svg>
+
+  <!-- ══════════════ PARENTS ══════════════ -->
+  <section id="parents">
+    <div class="reveal-on-scroll">
+      <p class="section-eyebrow">🌅 Los Orgullosos Padres</p>
+      <h2 class="section-title">Con todo el amor del Círculo de la Vida</h2>
+      <div class="paw-accent">🐾 🦁 🐾</div>
+      <div class="parents-names">
+        <span>Wlad</span>
+        <span class="parents-ampersand"> &amp; </span>
+        <span>Samy</span>
+      </div>
+      <div class="quote-box">
+        <p class="quote-text">
+          Recuerda quién eres, mi tesoro: eres mi bebé, mi orgullo,<br>
+          el futuro rey o reina de nuestros corazones.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <svg class="horizon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none" style="background:transparent">
+    <path fill="rgba(45,18,5,0.6)" d="M0,40 Q180,0 360,40 Q540,80 720,40 Q900,0 1080,40 Q1260,80 1440,40 L1440,80 L0,80 Z"/>
+  </svg>
+
+  <!-- ══════════════ REVEAL ══════════════ -->
+  <section id="reveal">
+    <div class="reveal-on-scroll">
+      <p class="section-eyebrow">👑 El Gran Momento</p>
+      <h2 class="section-title">¿Niño o Niña?</h2>
+      <p class="reveal-sub">Abre el sobre para descubrir nuestra mayor bendición</p>
+
+      <!-- Envelope -->
+      <div class="envelope-scene" id="envelope" onclick="openEnvelope()">
+        <div class="photo-card">
+          <!--
+            ╔══════════════════════════════════════════════╗
+            ║  REEMPLAZA este src con la ruta a tu foto    ║
+            ║  del eco. Ej: src="assets/eco.jpg"           ║
+            ╚══════════════════════════════════════════════╝
+          -->
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Ultrasound_image_of_a_fetus.jpg/320px-Ultrasound_image_of_a_fetus.jpg"
+            alt="Ecografía del bebé 🌟"
+          />
+          <p class="photo-label">Nuestra mayor bendición 🌟</p>
+        </div>
+        <div class="envelope-body">
+          <div class="envelope-flap"></div>
+          <div class="envelope-bottom-left"></div>
+          <div class="envelope-bottom-right"></div>
+          <div class="envelope-seal">🦁</div>
+        </div>
+      </div>
+      <p class="open-hint" id="openHint">👆 Toca el sobre para abrir</p>
+
+      <!-- Blessing + gender buttons (appear after envelope opens) -->
+      <div class="blessing" id="blessing">
+        <div class="paw-accent">✨ 🌟 ✨</div>
+        <h3 class="blessing-title">Nuestra Mayor Bendición</h3>
+
+        <div class="gender-reveal">
+          <button class="gender-btn btn-boy"  onclick="revealGender('boy')">💙 Es Niño</button>
+          <button class="gender-btn btn-girl" onclick="revealGender('girl')">💗 Es Niña</button>
+        </div>
+
+        <div class="gender-result boy" id="result-boy">
+          💙 ¡Es un NIÑO! 💙<br>
+          <span style="font-size:1.2rem;font-family:'Lora',serif;font-weight:400;color:var(--cream)">
+            ¡El futuro Rey de nuestros corazones ha llegado!
+          </span>
+        </div>
+        <div class="gender-result girl" id="result-girl">
+          💗 ¡Es una NIÑA! 💗<br>
+          <span style="font-size:1.2rem;font-family:'Lora',serif;font-weight:400;color:var(--cream)">
+            ¡La futura Reina de nuestros corazones ha llegado!
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <svg class="horizon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none" style="background:transparent">
+    <path fill="rgba(26,10,0,0.6)" d="M0,40 Q180,80 360,40 Q540,0 720,40 Q900,80 1080,40 Q1260,0 1440,40 L1440,0 L0,0 Z"/>
+  </svg>
+
+  <!-- ══════════════ DETAILS ══════════════ -->
+  <section id="details">
+    <div class="reveal-on-scroll">
+      <p class="section-eyebrow">📅 Detalles del Evento</p>
+      <h2 class="section-title">¡Te Esperamos!</h2>
+
+      <div class="details-grid">
+        <div class="detail-card">
+          <div class="detail-icon">📅</div>
+          <div class="detail-label">Fecha</div>
+          <div class="detail-value">Sábado<br>14 de Marzo, 2026</div>
+        </div>
+        <div class="detail-card">
+          <div class="detail-icon">🕛</div>
+          <div class="detail-label">Hora</div>
+          <div class="detail-value">12:00 PM</div>
+        </div>
+      </div>
+
+      <p class="section-eyebrow" style="margin-top:48px">⏳ Cuenta Regresiva al Gran Día</p>
+      <div class="countdown">
+        <div class="count-block"><div class="count-number" id="cd-days">--</div><div class="count-label">Días</div></div>
+        <div class="count-block"><div class="count-number" id="cd-hours">--</div><div class="count-label">Horas</div></div>
+        <div class="count-block"><div class="count-number" id="cd-mins">--</div><div class="count-label">Minutos</div></div>
+        <div class="count-block"><div class="count-number" id="cd-secs">--</div><div class="count-label">Segundos</div></div>
+      </div>
+    </div>
+  </section>
+
+  <svg class="horizon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none" style="background:transparent">
+    <path fill="rgba(45,18,5,0.6)" d="M0,40 Q180,0 360,40 Q540,80 720,40 Q900,0 1080,40 Q1260,80 1440,40 L1440,80 L0,80 Z"/>
+  </svg>
+
+  <!-- ══════════════ LOCATION ══════════════ -->
+  <section id="location">
+    <div class="reveal-on-scroll">
+      <p class="section-eyebrow">📍 Ubicación</p>
+      <h2 class="section-title">Las Tierras del Orgullo</h2>
+      <p class="location-name">
+        🏡 Urbanización La Campiña<br>Conjunto Katania
       </p>
-    </div>
-  </div>
-</section>
-
-<svg class="horizon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;background:#1A0A00">
-  <path fill="#2D1205" d="M0,40 Q180,0 360,40 Q540,80 720,40 Q900,0 1080,40 Q1260,80 1440,40 L1440,80 L0,80 Z"/>
-</svg>
-
-<!-- ══════════════ REVEAL ══════════════ -->
-<section id="reveal">
-  <div class="reveal-on-scroll">
-    <p class="section-eyebrow">👑 El Gran Momento</p>
-    <h2 class="section-title">¿Niño o Niña?</h2>
-    <p class="reveal-sub">Abre el sobre para descubrir nuestra mayor bendición</p>
-
-    <div class="envelope-scene" id="envelope" onclick="openEnvelope()">
-      <div class="photo-card">
-        <!-- Replace src with your actual ultrasound image -->
-        <img src="images/eco-baby.jpg" alt="Ecografía del bebé" />
-        <p class="photo-label">Nuestra mayor bendición 🌟</p>
-      </div>
-      <div class="envelope-body">
-        <div class="envelope-flap"></div>
-        <div class="envelope-bottom-left"></div>
-        <div class="envelope-bottom-right"></div>
-        <div class="envelope-seal">🦁</div>
-      </div>
-    </div>
-    <p class="open-hint" id="openHint">👆 Toca el sobre para abrir</p>
-
-    <div class="blessing" id="blessing">
-      <div class="paw-accent">✨ 🌟 ✨</div>
-      <h3 class="blessing-title">El bebé será:</h3>
-
-      <div class="gender-reveal">
-        <button class="gender-btn btn-boy" onclick="revealGender('boy')">💙 Niño</button>
-        <button class="gender-btn btn-girl" onclick="revealGender('girl')">💗 Niña</button>
-      </div>
-
-      <div class="gender-result boy" id="result-boy">
-        💙 ¡Será un NIÑO! 💙<br>
-        <span style="font-size:1.2rem;font-family:'Lora',serif;font-weight:400;color:var(--cream)">¡El príncipe de nuestros corazones!</span>
-      </div>
-      <div class="gender-result girl" id="result-girl">
-        💗 ¡Será una NIÑA! 💗<br>
-        <span style="font-size:1.2rem;font-family:'Lora',serif;font-weight:400;color:var(--cream)">¡La princesa de nuestros corazones!</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<svg class="horizon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;background:#2D1205">
-  <path fill="#1A0A00" d="M0,40 Q180,80 360,40 Q540,0 720,40 Q900,80 1080,40 Q1260,0 1440,40 L1440,0 L0,0 Z"/>
-</svg>
-
-<!-- ══════════════ DETAILS ══════════════ -->
-<section id="details">
-  <div class="reveal-on-scroll">
-    <p class="section-eyebrow">📅 Detalles del Evento</p>
-    <h2 class="section-title">¡Te Esperamos!</h2>
-
-    <div class="details-grid">
-      <div class="detail-card">
-        <div class="detail-icon">📅</div>
-        <div class="detail-label">Fecha</div>
-        <div class="detail-value">Sábado<br>14 de Marzo, 2026</div>
-      </div>
-      <div class="detail-card">
-        <div class="detail-icon">🕛</div>
-        <div class="detail-label">Hora</div>
-        <div class="detail-value">12:00 PM</div>
-      </div>
-    </div>
-
-    <p class="section-eyebrow" style="margin-top:48px">⏳ Cuenta Regresiva</p>
-    <div class="countdown">
-      <div class="count-block"><div class="count-number" id="cd-days">--</div><div class="count-label">Días</div></div>
-      <div class="count-block"><div class="count-number" id="cd-hours">--</div><div class="count-label">Horas</div></div>
-      <div class="count-block"><div class="count-number" id="cd-mins">--</div><div class="count-label">Minutos</div></div>
-      <div class="count-block"><div class="count-number" id="cd-secs">--</div><div class="count-label">Segundos</div></div>
-    </div>
-  </div>
-</section>
-
-<svg class="horizon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;background:#1A0A00">
-  <path fill="#2D1205" d="M0,40 Q180,0 360,40 Q540,80 720,40 Q900,0 1080,40 Q1260,80 1440,40 L1440,80 L0,80 Z"/>
-</svg>
-
-<!-- ══════════════ LOCATION ══════════════ -->
-<section id="location">
-  <div class="reveal-on-scroll">
-    <p class="section-eyebrow">📍 Ubicación</p>
-    <h2 class="section-title">Nos vemos en:</h2>
-    <p class="location-name">
-      🏡 Urbanización La Campiña<br>
-      Conjunto Katania
-    </p>
-    <a href="https://maps.app.goo.gl/qidXKk4DheyF2Qzx5" target="_blank" class="maps-btn">
-      🗺️ &nbsp; Abrir en Google Maps
-    </a>
-  </div>
-</section>
-
-<svg class="horizon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;background:#2D1205">
-  <path fill="#1A0A00" d="M0,40 Q180,80 360,40 Q540,0 720,40 Q900,80 1080,40 Q1260,0 1440,40 L1440,0 L0,0 Z"/>
-</svg>
-
-<!-- ══════════════ ITINERARY ══════════════ -->
-<section id="itinerary">
-  <div class="reveal-on-scroll">
-    <p class="section-eyebrow">🗓️ Programa del Día</p>
-    <h2 class="section-title">Itinerario</h2>
-
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-dot">🌅</div>
-        <div class="timeline-content">
-          <div class="tl-title">Bienvenida</div>
-          <div class="tl-desc">Recepción de invitados y aperitivos</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot">🍽️</div>
-        <div class="timeline-content">
-          <div class="tl-title">Almuerzo Juntos</div>
-          <div class="tl-desc">Comida para celebrar la nueva vida que llega.</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot">🎮</div>
-        <div class="timeline-content">
-          <div class="tl-title">Juegos &amp; Diversión</div>
-          <div class="tl-desc">Actividades y dinámicas con premios para los ganadores.</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot">👑</div>
-        <div class="timeline-content">
-          <div class="tl-title">¡La Gran Revelación!</div>
-          <div class="tl-desc">El momento que todos esperamos: ¿niño o niña?</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot">🎉</div>
-        <div class="timeline-content">
-          <div class="tl-title">¡Celebración Total!</div>
-          <div class="tl-desc">Música, baile y alegría.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<svg class="horizon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;background:#1A0A00">
-  <path fill="#2D1205" d="M0,40 Q180,0 360,40 Q540,80 720,40 Q900,0 1080,40 Q1260,80 1440,40 L1440,80 L0,80 Z"/>
-</svg>
-
-<!-- ══════════════ DRESS CODE ══════════════ -->
-<section id="dresscode">
-  <div class="reveal-on-scroll">
-    <p class="section-eyebrow">👗 Código de Vestimenta</p>
-    <h2 class="section-title">¿De Qué Lado Estás?</h2>
-    <p style="color:var(--cream);opacity:0.8;margin-top:8px;font-size:1rem">Lleva un detalle del color de tu equipo y demuestra tu apoyo</p>
-
-    <div class="dress-cards">
-      <div class="dress-card boy">
-        <div class="dress-icon">💙</div>
-        <div class="dress-team">Team Niño</div>
-        <div class="dress-desc">Usa un detalle en<br><strong>azul celeste</strong><br>si crees que es varón</div>
-      </div>
-      <div class="dress-card girl">
-        <div class="dress-icon">💗</div>
-        <div class="dress-team">Team Niña</div>
-        <div class="dress-desc">Usa un detalle en<br><strong>rosado</strong><br>si crees que es mujer</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<svg class="horizon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;background:#2D1205">
-  <path fill="#1A0A00" d="M0,40 Q180,80 360,40 Q540,0 720,40 Q900,80 1080,40 Q1260,0 1440,40 L1440,0 L0,0 Z"/>
-</svg>
-
-<!-- ══════════════ GIFTS ══════════════ -->
-<section id="gifts">
-  <div class="reveal-on-scroll">
-    <p class="section-eyebrow">🎁 Regalos</p>
-    <h2 class="section-title">El Regalo Más Grande</h2>
-
-    <div class="gifts-box">
-      <div class="gifts-icon">🎁</div>
-      <p class="gifts-text">
-        Tu presencia y amor son el mejor regalo para nosotros y para nuestro cachorro real.<br><br>
-        Si deseas traer algo, los detalles para el bebé son siempre bienvenidos.<br>
-        Con todo nuestro amor — <strong>Wlad &amp; Samy</strong> 🦁
-      </p>
-    </div>
-  </div>
-</section>
-
-<svg class="horizon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;background:#1A0A00">
-  <path fill="#2D1205" d="M0,40 Q180,0 360,40 Q540,80 720,40 Q900,0 1080,40 Q1260,80 1440,40 L1440,80 L0,80 Z"/>
-</svg>
-
-<!-- ══════════════ RSVP ══════════════ -->
-<section id="rsvp">
-  <div class="reveal-on-scroll">
-    <p class="section-eyebrow">✅ Confirmación</p>
-    <h2 class="section-title">¡Confirma tu Llegada al Reino!</h2>
-    <p class="rsvp-note">
-      Por favor confirma tu asistencia antes del <strong>10 de Marzo de 2026</strong> para poder preparar todo con amor.
-    </p>
-
-    <div class="rsvp-form">
-      <a href="https://wa.me/593959819007?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20la%20Revelación%20de%20Género%20de%20Wlad%20%26%20Samy%20" target="_blank" class="btn-whatsapp">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.564 4.14 1.547 5.875L.057 23.5l5.774-1.465A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-4.992-1.364l-.357-.213-3.43.871.9-3.338-.234-.375A9.818 9.818 0 1112 21.818z"/></svg>
-        Confirmar por WhatsApp
+      <a href="https://maps.app.goo.gl/qidXKk4DheyF2Qzx5" target="_blank" rel="noopener" class="maps-btn">
+        🗺️ &nbsp; Abrir en Google Maps
       </a>
-  </div>
-</section>
+    </div>
+  </section>
 
-<!-- ══════════════ FOOTER ══════════════ -->
-<footer>
-  <div class="footer-paw">🐾 🦁 🐾</div>
-  <p class="footer-text">Con amor — Wlad &amp; Samy · 2026 · Hakuna Matata</p>
-</footer>
+  <svg class="horizon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none" style="background:transparent">
+    <path fill="rgba(26,10,0,0.6)" d="M0,40 Q180,80 360,40 Q540,0 720,40 Q900,80 1080,40 Q1260,0 1440,40 L1440,0 L0,0 Z"/>
+  </svg>
 
-<script>
-  /* ── PARTICLES ── */
-  (function() {
-    const canvas = document.getElementById('particles');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
+  <!-- ══════════════ ITINERARY ══════════════ -->
+  <section id="itinerary">
+    <div class="reveal-on-scroll">
+      <p class="section-eyebrow">🗓️ Programa del Día</p>
+      <h2 class="section-title">El Camino del Rey</h2>
 
-    function resize() {
-      canvas.width  = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    resize();
-    window.addEventListener('resize', resize);
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot">🌅</div>
+          <div class="timeline-content">
+            <div class="tl-title">Bienvenida</div>
+            <div class="tl-desc">Recepción de invitados. ¡El orgullo te espera!</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">🍽️</div>
+          <div class="timeline-content">
+            <div class="tl-title">Banquete Real</div>
+            <div class="tl-desc">Comida para celebrar la nueva vida que llega.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">🎮</div>
+          <div class="timeline-content">
+            <div class="tl-title">Juegos &amp; Diversión</div>
+            <div class="tl-desc">Actividades y dinámicas para toda la sabana.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">👑</div>
+          <div class="timeline-content">
+            <div class="tl-title">¡La Gran Revelación!</div>
+            <div class="tl-desc">El momento que todos esperamos: ¿niño o niña?</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">🎉</div>
+          <div class="timeline-content">
+            <div class="tl-title">¡Celebración Total!</div>
+            <div class="tl-desc">Música, baile y alegría en el reino de Wlad &amp; Samy.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    function createParticle() {
-      return {
-        x: Math.random() * canvas.width,
-        y: canvas.height + 10,
-        r: Math.random() * 3 + 1,
-        speed: Math.random() * 0.6 + 0.3,
-        opacity: Math.random() * 0.5 + 0.1,
-        drift: (Math.random() - 0.5) * 0.5
-      };
-    }
+  <svg class="horizon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none" style="background:transparent">
+    <path fill="rgba(45,18,5,0.6)" d="M0,40 Q180,0 360,40 Q540,80 720,40 Q900,0 1080,40 Q1260,80 1440,40 L1440,80 L0,80 Z"/>
+  </svg>
 
-    for (let i = 0; i < 40; i++) {
-      const p = createParticle();
-      p.y = Math.random() * canvas.height;
-      particles.push(p);
-    }
+  <!-- ══════════════ DRESS CODE ══════════════ -->
+  <section id="dresscode">
+    <div class="reveal-on-scroll">
+      <p class="section-eyebrow">👗 Código de Vestimenta</p>
+      <h2 class="section-title">¿De Qué Lado Estás?</h2>
+      <p style="color:var(--cream);opacity:0.85;margin-top:8px;font-size:1rem">
+        Lleva un detalle del color de tu equipo y demuestra tu apoyo
+      </p>
 
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach((p, i) => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(245, 200, 66, ${p.opacity})`;
-        ctx.fill();
-        p.y -= p.speed;
-        p.x += p.drift;
-        if (p.y < -10) particles[i] = createParticle();
-      });
-      requestAnimationFrame(animate);
-    }
-    animate();
-  })();
+      <div class="dress-cards">
+        <div class="dress-card boy">
+          <div class="dress-icon">💙</div>
+          <div class="dress-team">Team Niño</div>
+          <div class="dress-desc">Usa un detalle en<br><strong>azul celeste</strong><br>si crees que es varón</div>
+        </div>
+        <div class="dress-card girl">
+          <div class="dress-icon">💗</div>
+          <div class="dress-team">Team Niña</div>
+          <div class="dress-desc">Usa un detalle en<br><strong>rosado</strong><br>si crees que es mujer</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  /* ── SCROLL REVEAL ── */
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.12 });
+  <svg class="horizon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none" style="background:transparent">
+    <path fill="rgba(26,10,0,0.6)" d="M0,40 Q180,80 360,40 Q540,0 720,40 Q900,80 1080,40 Q1260,0 1440,40 L1440,0 L0,0 Z"/>
+  </svg>
 
-  document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+  <!-- ══════════════ GIFTS ══════════════ -->
+  <section id="gifts">
+    <div class="reveal-on-scroll">
+      <p class="section-eyebrow">🎁 Regalos</p>
+      <h2 class="section-title">El Regalo Más Grande</h2>
 
-  /* ── ENVELOPE ── */
-  function openEnvelope() {
-    const env = document.getElementById('envelope');
-    const hint = document.getElementById('openHint');
-    const blessing = document.getElementById('blessing');
-    if (env.classList.contains('opened')) return;
-    env.classList.add('opened');
-    hint.style.display = 'none';
-    setTimeout(() => {
-      blessing.classList.add('visible');
-    }, 1200);
-  }
+      <div class="gifts-box">
+        <div class="gifts-icon">🎁</div>
+        <p class="gifts-text">
+          Tu presencia y amor son el mejor regalo para nosotros y para nuestro cachorro real.<br><br>
+          Si deseas traer algo, los detalles para el bebé son siempre bienvenidos.<br>
+          Con todo nuestro amor — <strong>Wlad &amp; Samy</strong> 🦁
+        </p>
+      </div>
+    </div>
+  </section>
 
-  /* ── GENDER REVEAL ── */
-  function revealGender(type) {
-    document.querySelectorAll('.gender-btn').forEach(b => b.classList.remove('selected'));
-    document.querySelectorAll('.gender-result').forEach(r => r.classList.remove('show'));
-    document.querySelector(`.btn-${type}`).classList.add('selected');
-    document.getElementById(`result-${type}`).classList.add('show');
-    launchConfetti(type);
-  }
+  <svg class="horizon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none" style="background:transparent">
+    <path fill="rgba(45,18,5,0.6)" d="M0,40 Q180,0 360,40 Q540,80 720,40 Q900,0 1080,40 Q1260,80 1440,40 L1440,80 L0,80 Z"/>
+  </svg>
 
-  function launchConfetti(type) {
-    const colors = type === 'boy'
-      ? ['#87CEEB', '#5DADE2', '#AED6F1', '#F5C842']
-      : ['#FFB6C1', '#FF69B4', '#FFD1DC', '#F5C842'];
-    const container = document.body;
-    for (let i = 0; i < 80; i++) {
-      const conf = document.createElement('div');
-      conf.style.cssText = `
-        position:fixed;
-        top:${Math.random()*40}%;
-        left:${Math.random()*100}%;
-        width:${Math.random()*10+5}px;
-        height:${Math.random()*10+5}px;
-        background:${colors[Math.floor(Math.random()*colors.length)]};
-        border-radius:${Math.random()>0.5?'50%':'2px'};
-        pointer-events:none;
-        z-index:9999;
-        animation: confettiFall ${Math.random()*2+1.5}s ease forwards;
-        transform: rotate(${Math.random()*360}deg);
-      `;
-      container.appendChild(conf);
-      setTimeout(() => conf.remove(), 4000);
-    }
-  }
+  <!-- ══════════════ RSVP ══════════════ -->
+  <section id="rsvp">
+    <div class="reveal-on-scroll">
+      <p class="section-eyebrow">✅ Confirmación</p>
+      <h2 class="section-title">¡Confirma tu Llegada al Reino!</h2>
+      <p class="rsvp-note">
+        Por favor confirma tu asistencia antes del <strong>12 de Marzo de 2026</strong>
+        para poder preparar todo con amor.
+      </p>
 
-  /* Confetti keyframes */
-  const style = document.createElement('style');
-  style.textContent = `
-    @keyframes confettiFall {
-      0%   { opacity:1; transform: translateY(0) rotate(0deg) scale(1); }
-      100% { opacity:0; transform: translateY(60vh) rotate(720deg) scale(0.3); }
-    }
-  `;
-  document.head.appendChild(style);
+      <div class="rsvp-form">
+        <input  class="rsvp-input"  type="text"   id="rsvp-name"   placeholder="Tu nombre completo" />
+        <input  class="rsvp-input"  type="number"  id="rsvp-guests" placeholder="¿Cuántos asistirán? (incluyéndote)" min="1" max="20" />
+        <select class="rsvp-select" id="rsvp-team">
+          <option value="" disabled selected>¿De qué equipo eres?</option>
+          <option value="niño">💙 Team Niño</option>
+          <option value="niña">💗 Team Niña</option>
+          <option value="sorpresa">🤫 Team Sorpresa</option>
+        </select>
+        <button class="rsvp-btn" onclick="submitRsvp()">🦁 &nbsp; ¡Confirmar Asistencia!</button>
+      </div>
 
-  /* ── COUNTDOWN ── */
-  function updateCountdown() {
-    const target = new Date('2026-03-14T12:00:00');
-    const now    = new Date();
-    const diff   = target - now;
-    if (diff <= 0) {
-      document.getElementById('cd-days').textContent  = '0';
-      document.getElementById('cd-hours').textContent = '0';
-      document.getElementById('cd-mins').textContent  = '0';
-      document.getElementById('cd-secs').textContent  = '0';
-      return;
-    }
-    document.getElementById('cd-days').textContent  = Math.floor(diff / 86400000);
-    document.getElementById('cd-hours').textContent = Math.floor((diff % 86400000) / 3600000);
-    document.getElementById('cd-mins').textContent  = Math.floor((diff % 3600000)  / 60000);
-    document.getElementById('cd-secs').textContent  = Math.floor((diff % 60000)    / 1000);
-  }
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
+      <div class="rsvp-success" id="rsvp-success">
+        🦁 ¡Hakuna Matata! Tu confirmación fue registrada.<br>
+        ¡Te esperamos con mucho amor en el reino! 👑
+      </div>
+    </div>
+  </section>
 
-  /* ── RSVP ── */
-  function submitRsvp() {
-    const name   = document.getElementById('rsvp-name').value.trim();
-    const guests = document.getElementById('rsvp-guests').value;
-    const team   = document.getElementById('rsvp-team').value;
-    if (!name || !guests || !team) {
-      alert('Por favor completa todos los campos 🦁');
-      return;
-    }
-    document.querySelector('.rsvp-form').style.display = 'none';
-    document.getElementById('rsvp-success').style.display = 'block';
-  }
-</script>
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer>
+    <div class="footer-paw">🐾 🦁 🐾</div>
+    <p class="footer-text">Con amor — Wlad &amp; Samy · 2026 · Hakuna Matata</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+
 </body>
 </html>
