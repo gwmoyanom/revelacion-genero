@@ -416,6 +416,29 @@
       color: var(--deep);
       box-shadow: 0 0 30px #FFB6C1aa;
     }
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 44px;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: #fff;
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 8px 30px rgba(37,211,102,0.3);
+      transition: all 0.3s ease;
+      font-weight: 700;
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(37,211,102,0.5);
+    }
 
     .gender-result {
       margin-top: 40px;
@@ -856,7 +879,7 @@
 <!-- ══════════════ HERO ══════════════ -->
 <section id="hero">
   <div class="hero-paws">🐾 🦁 🐾</div>
-  <h1 class="hero-title">Un Nuevo Cachorro<br>Está en Camino</h1>
+  <h1 class="hero-title">Nuestro Bebé<br>Está en Camino</h1>
   <p class="hero-subtitle">Revelación de Género · Wlad &amp; Samy</p>
   <div class="hero-divider"></div>
 
@@ -909,7 +932,7 @@
     <div class="envelope-scene" id="envelope" onclick="openEnvelope()">
       <div class="photo-card">
         <!-- Replace src with your actual ultrasound image -->
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Ultrasound_image_of_a_fetus.jpg/320px-Ultrasound_image_of_a_fetus.jpg" alt="Ecografía del bebé" />
+        <img src="images/eco-baby.jpg" alt="Ecografía del bebé" />
         <p class="photo-label">Nuestra mayor bendición 🌟</p>
       </div>
       <div class="envelope-body">
@@ -923,20 +946,20 @@
 
     <div class="blessing" id="blessing">
       <div class="paw-accent">✨ 🌟 ✨</div>
-      <h3 class="blessing-title">Nuestra Mayor Bendición</h3>
+      <h3 class="blessing-title">El bebé será:</h3>
 
       <div class="gender-reveal">
-        <button class="gender-btn btn-boy" onclick="revealGender('boy')">💙 Es Niño</button>
-        <button class="gender-btn btn-girl" onclick="revealGender('girl')">💗 Es Niña</button>
+        <button class="gender-btn btn-boy" onclick="revealGender('boy')">💙 Niño</button>
+        <button class="gender-btn btn-girl" onclick="revealGender('girl')">💗 Niña</button>
       </div>
 
       <div class="gender-result boy" id="result-boy">
-        💙 ¡Es un NIÑO! 💙<br>
-        <span style="font-size:1.2rem;font-family:'Lora',serif;font-weight:400;color:var(--cream)">¡El futuro Rey de nuestros corazones ha llegado!</span>
+        💙 ¡Será un NIÑO! 💙<br>
+        <span style="font-size:1.2rem;font-family:'Lora',serif;font-weight:400;color:var(--cream)">¡El príncipe de nuestros corazones!</span>
       </div>
       <div class="gender-result girl" id="result-girl">
-        💗 ¡Es una NIÑA! 💗<br>
-        <span style="font-size:1.2rem;font-family:'Lora',serif;font-weight:400;color:var(--cream)">¡La futura Reina de nuestros corazones ha llegado!</span>
+        💗 ¡Será una NIÑA! 💗<br>
+        <span style="font-size:1.2rem;font-family:'Lora',serif;font-weight:400;color:var(--cream)">¡La princesa de nuestros corazones!</span>
       </div>
     </div>
   </div>
@@ -983,7 +1006,7 @@
 <section id="location">
   <div class="reveal-on-scroll">
     <p class="section-eyebrow">📍 Ubicación</p>
-    <h2 class="section-title">Las Tierras del Orgullo</h2>
+    <h2 class="section-title">Nos vemos en:</h2>
     <p class="location-name">
       🏡 Urbanización La Campiña<br>
       Conjunto Katania
@@ -1002,20 +1025,20 @@
 <section id="itinerary">
   <div class="reveal-on-scroll">
     <p class="section-eyebrow">🗓️ Programa del Día</p>
-    <h2 class="section-title">El Camino del Rey</h2>
+    <h2 class="section-title">Itinerario</h2>
 
     <div class="timeline">
       <div class="timeline-item">
         <div class="timeline-dot">🌅</div>
         <div class="timeline-content">
           <div class="tl-title">Bienvenida</div>
-          <div class="tl-desc">Recepción de invitados. ¡El orgullo te espera!</div>
+          <div class="tl-desc">Recepción de invitados y aperitivos</div>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot">🍽️</div>
         <div class="timeline-content">
-          <div class="tl-title">Banquete Real</div>
+          <div class="tl-title">Almuerzo Juntos</div>
           <div class="tl-desc">Comida para celebrar la nueva vida que llega.</div>
         </div>
       </div>
@@ -1023,7 +1046,7 @@
         <div class="timeline-dot">🎮</div>
         <div class="timeline-content">
           <div class="tl-title">Juegos &amp; Diversión</div>
-          <div class="tl-desc">Actividades y dinámicas para toda la sabana.</div>
+          <div class="tl-desc">Actividades y dinámicas con premios para los ganadores.</div>
         </div>
       </div>
       <div class="timeline-item">
@@ -1037,7 +1060,7 @@
         <div class="timeline-dot">🎉</div>
         <div class="timeline-content">
           <div class="tl-title">¡Celebración Total!</div>
-          <div class="tl-desc">Música, baile y alegría en el reino de Wlad &amp; Samy.</div>
+          <div class="tl-desc">Música, baile y alegría.</div>
         </div>
       </div>
     </div>
@@ -1105,21 +1128,10 @@
     </p>
 
     <div class="rsvp-form">
-      <input class="rsvp-input" type="text" id="rsvp-name" placeholder="Tu nombre completo" />
-      <input class="rsvp-input" type="number" id="rsvp-guests" placeholder="¿Cuántos asistirán? (incluyéndote)" min="1" max="10" />
-      <select class="rsvp-select" id="rsvp-team">
-        <option value="" disabled selected>¿De qué equipo eres?</option>
-        <option value="niño">💙 Team Niño</option>
-        <option value="niña">💗 Team Niña</option>
-        <option value="sorpresa">🤫 Team Sorpresa</option>
-      </select>
-      <button class="rsvp-btn" onclick="submitRsvp()">🦁 &nbsp; ¡Confirmar Asistencia!</button>
-    </div>
-
-    <div class="rsvp-success" id="rsvp-success">
-      🦁 ¡Hakuna Matata! Tu confirmación fue registrada.<br>
-      ¡Te esperamos con mucho amor en el reino! 👑
-    </div>
+      <a href="https://wa.me/593959819007?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20la%20Revelación%20de%20Género%20de%20Wlad%20%26%20Samy%20" target="_blank" class="btn-whatsapp">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.564 4.14 1.547 5.875L.057 23.5l5.774-1.465A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-4.992-1.364l-.357-.213-3.43.871.9-3.338-.234-.375A9.818 9.818 0 1112 21.818z"/></svg>
+        Confirmar por WhatsApp
+      </a>
   </div>
 </section>
 
