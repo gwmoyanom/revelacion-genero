@@ -60,25 +60,17 @@ document.querySelectorAll('.reveal-on-scroll').forEach(el => scrollObserver.obse
 
 /* ── ENVELOPE OPEN ── */
 function openEnvelope() {
-  const env      = document.getElementById('envelope');
+  const wrapper  = document.getElementById('envelope')?.closest('.envelope-wrapper')
+                || document.querySelector('.envelope-wrapper');
   const hint     = document.getElementById('openHint');
   const blessing = document.getElementById('blessing');
-  if (!env || env.classList.contains('opened')) return;
-  env.classList.add('opened');
+  if (!wrapper || wrapper.classList.contains('opened')) return;
+  wrapper.classList.add('opened');
   if (hint) hint.style.display = 'none';
-  setTimeout(() => { if (blessing) blessing.classList.add('visible'); }, 1200);
+  setTimeout(() => { if (blessing) blessing.classList.add('visible'); }, 900);
 }
 
-/* ── GENDER REVEAL ── */
-function revealGender(type) {
-  document.querySelectorAll('.gender-btn').forEach(b => b.classList.remove('selected'));
-  document.querySelectorAll('.gender-result').forEach(r => r.classList.remove('show'));
-  const btn    = document.querySelector(`.btn-${type}`);
-  const result = document.getElementById(`result-${type}`);
-  if (btn)    btn.classList.add('selected');
-  if (result) result.classList.add('show');
-  launchConfetti(type);
-}
+/* ── GENDER REVEAL via confetti only (dress code cards) ── */
 
 function launchConfetti(type) {
   const colors = type === 'boy'
@@ -141,22 +133,4 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-/* ── RSVP FORM ── */
-function submitRsvp() {
-  const name   = document.getElementById('rsvp-name')?.value.trim();
-  const guests = document.getElementById('rsvp-guests')?.value;
-  const team   = document.getElementById('rsvp-team')?.value;
-
-  if (!name || !guests || !team) {
-    alert('Por favor completa todos los campos 🦁');
-    return;
-  }
-
-  const form    = document.querySelector('.rsvp-form');
-  const success = document.getElementById('rsvp-success');
-  if (form)    form.style.display = 'none';
-  if (success) success.style.display = 'block';
-
-  // Optional: log to console for debugging / future webhook integration
-  console.log('RSVP recibido:', { name, guests, team });
-}
+/* ── RSVP: handled via WhatsApp link in HTML (no JS needed) ── */
