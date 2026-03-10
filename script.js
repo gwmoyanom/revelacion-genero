@@ -3,37 +3,27 @@
    Wlad & Samy · 2026
 ══════════════════════════════════════════════════ */
 
-/* ── MUSIC PLAYER ── */
-(function () {
-  const audio   = document.getElementById('bgMusic');
-  const playBtn = document.getElementById('playBtn');
-  const playIcon = document.getElementById('playIcon');
-  const bars    = document.getElementById('musicBars');
-  const vol     = document.getElementById('volSlider');
+/* ── SPLASH SCREEN → starts audio on first tap ── */
+function enterSite() {
+  const splash = document.getElementById('splash');
+  const audio  = document.getElementById('bgMusic');
 
-  if (!audio) return;
+  // Start audio — this works because it's inside a direct user gesture (click/tap)
+  if (audio) {
+    audio.volume = 0.6;
+    audio.play().then(() => setPlayingState(true)).catch(() => setPlayingState(false));
+  }
 
-  // Set initial volume
-  audio.volume = vol ? parseFloat(vol.value) : 0.6;
-
-  // Try autoplay — browsers may block it until user interaction
-  const tryAutoplay = () => {
-    audio.play().then(() => {
-      setPlayingState(true);
-    }).catch(() => {
-      // Autoplay blocked: show paused state, user must tap
-      setPlayingState(false);
-    });
-  };
-  tryAutoplay();
-
-  // On first user interaction, try again if still paused
-  document.addEventListener('click', () => {
-    if (audio.paused) {
-      audio.play().then(() => setPlayingState(true)).catch(() => {});
-    }
+  // Animate splash out, then remove from DOM
+  splash.classList.add('hiding');
+  splash.addEventListener('animationend', () => {
+    splash.remove();
+    // Scroll to top just in case
+    window.scrollTo(0, 0);
   }, { once: true });
-})();
+}
+
+/* ── MUSIC PLAYER state helpers ── */
 
 function setPlayingState(playing) {
   const playBtn  = document.getElementById('playBtn');
