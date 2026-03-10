@@ -210,4 +210,74 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-/* ── RSVP: handled via WhatsApp link in HTML (no JS needed) ── */
+/* ── RSVP: dynamic WhatsApp message builder ── */
+let rsvpCompanion = 'solo';
+let rsvpTeam      = null;
+
+function setCompanion(val) {
+  rsvpCompanion = val;
+  document.getElementById('tog-solo').classList.toggle('active', val === 'solo');
+  document.getElementById('tog-con').classList.toggle('active',  val === 'con');
+  const field = document.getElementById('companion-field');
+  field.style.display = val === 'con' ? 'flex' : 'none';
+  buildWhatsApp();
+}
+
+function setTeam(val) {
+  rsvpTeam = val;
+  document.getElementById('tog-boy').classList.toggle('active',  val === 'boy');
+  document.getElementById('tog-girl').classList.toggle('active', val === 'girl');
+  buildWhatsApp();
+}
+
+function buildWhatsApp() {
+  const name      = document.getElementById('rsvp-name')?.value.trim();
+  const companion = document.getElementById('rsvp-companion')?.value.trim();
+  const preview   = document.getElementById('rsvp-preview-text');
+  const btn       = document.getElementById('whatsapp-btn');
+
+  // Build message parts
+  const hasCom    = rsvpCompanion === 'con' && companion;
+  const teamLabel = rsvpTeam === 'boy'  ? 'Team Niño 💙'
+                  : rsvpTeam === 'girl' ? 'Team Niña 💗'
+                  : null;
+
+  // Build the human-readable preview
+  let msg = '';
+  if (name) {
+    msg += `Mi nombre es ${name}`;
+    if (hasCom)    msg += `, y voy con ${companion}`;
+    msg += `! `;
+    if (teamLabel) msg += `Somos ${teamLabel}. `;
+    msg += hasCom ? `Confirmamos nuestra asistencia! 🦁👑`
+                  : `Confirmo mi asistencia! 🦁👑`;
+  }
+
+  // Update preview box
+  if (preview) {
+    preview.textContent = msg || 'Completa los campos para ver el mensaje...';
+  }
+
+  // Enable/disable button
+  const isReady = !!name && !!rsvpTeam;
+  if (btn) {
+    btn.classList.toggle('ready', isReady);
+    if (isReady) {
+      btn.href = `https://wa.me/593959819007?text=${encodeURIComponent(msg)}`;
+    } else {
+      btn.href = '#';
+    }
+  }
+}
+
+function validateRsvp() {
+  const name = document.getElementById('rsvp-name')?.value.trim();
+  if (!name || !rsvpTeam) {
+    // Briefly shake the form to indicate missing fields
+    const form = document.querySelector('.rsvp-form');
+    form?.classList.add('shake');
+    setTimeout(() => form?.classList.remove('shake'), 500);
+    return false;
+  }
+  return true;
+}
