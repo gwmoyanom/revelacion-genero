@@ -3,7 +3,78 @@
    Wlad & Samy · 2026
 ══════════════════════════════════════════════════ */
 
-/* ── PARTICLES (canvas) ── */
+/* ── MUSIC PLAYER ── */
+(function () {
+  const audio   = document.getElementById('bgMusic');
+  const playBtn = document.getElementById('playBtn');
+  const playIcon = document.getElementById('playIcon');
+  const bars    = document.getElementById('musicBars');
+  const vol     = document.getElementById('volSlider');
+
+  if (!audio) return;
+
+  // Set initial volume
+  audio.volume = vol ? parseFloat(vol.value) : 0.6;
+
+  // Try autoplay — browsers may block it until user interaction
+  const tryAutoplay = () => {
+    audio.play().then(() => {
+      setPlayingState(true);
+    }).catch(() => {
+      // Autoplay blocked: show paused state, user must tap
+      setPlayingState(false);
+    });
+  };
+  tryAutoplay();
+
+  // On first user interaction, try again if still paused
+  document.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play().then(() => setPlayingState(true)).catch(() => {});
+    }
+  }, { once: true });
+})();
+
+function setPlayingState(playing) {
+  const playBtn  = document.getElementById('playBtn');
+  const playIcon = document.getElementById('playIcon');
+  const bars     = document.getElementById('musicBars');
+  if (!playBtn) return;
+  if (playing) {
+    playIcon.textContent = '⏸';
+    playBtn.classList.remove('paused');
+    bars?.classList.remove('paused');
+  } else {
+    playIcon.textContent = '▶';
+    playBtn.classList.add('paused');
+    bars?.classList.add('paused');
+  }
+}
+
+function toggleMusic() {
+  const audio = document.getElementById('bgMusic');
+  if (!audio) return;
+  if (audio.paused) {
+    audio.play().then(() => setPlayingState(true)).catch(() => {});
+  } else {
+    audio.pause();
+    setPlayingState(false);
+  }
+}
+
+function setVolume(val) {
+  const audio = document.getElementById('bgMusic');
+  if (audio) audio.volume = parseFloat(val);
+  // Update slider gradient fill
+  const slider = document.getElementById('volSlider');
+  if (slider) {
+    const pct = Math.round(parseFloat(val) * 100);
+    slider.style.background =
+      `linear-gradient(to right, var(--gold) ${pct}%, #ffffff33 ${pct}%)`;
+  }
+}
+
+
 (function () {
   const canvas = document.getElementById('particles');
   if (!canvas) return;
