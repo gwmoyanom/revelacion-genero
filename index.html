@@ -118,13 +118,21 @@
     <div class="reveal-on-scroll">
       <p class="section-eyebrow">👑 El Gran Momento</p>
       <h2 class="section-title">¿Niño o Niña?</h2>
-      <p class="reveal-sub">Abre el sobre y conoce el pequeño secreto que cambiará nuestras vidas para siempre</p>
+      <p class="reveal-sub">Abre el sobre para descubrir nuestra mayor bendición</p>
 
-      <!-- Envelope wrapper: positions the photo overlay relative to the envelope -->
+      <!-- Envelope wrapper: positions the video overlay relative to the envelope -->
       <div class="envelope-wrapper">
-        <!-- Photo card: sits centered above the envelope body, revealed on open -->
+        <!-- Video card: sits centered above the envelope body, revealed on open -->
         <div class="photo-card" id="photoCard">
-          <img src="images/eco-baby.jpg" alt="Ecografía del bebé 🌟" />
+          <video
+            id="ecoVideo"
+            src="media/eco4d.mp4"
+            playsinline
+            muted
+            loop
+            preload="metadata"
+            style="width:100%;height:150px;object-fit:cover;border-radius:3px;display:block;"
+          ></video>
           <p class="photo-label">Nuestra mayor bendición 🌟</p>
         </div>
 
@@ -142,7 +150,7 @@
       <!-- Blessing (appears after envelope opens) -->
       <div class="blessing" id="blessing">
         <div class="paw-accent">✨ 🌟 ✨</div>
-        <h3 class="blessing-title">El milagro que pronto conoceremos</h3>
+        <h3 class="blessing-title">Nuestra Mayor Bendición</h3>
       </div>
     </div>
   </section>
