@@ -141,9 +141,23 @@ function openEnvelope() {
                 || document.querySelector('.envelope-wrapper');
   const hint     = document.getElementById('openHint');
   const blessing = document.getElementById('blessing');
+  const ecoVideo = document.getElementById('ecoVideo');
+
   if (!wrapper || wrapper.classList.contains('opened')) return;
   wrapper.classList.add('opened');
   if (hint) hint.style.display = 'none';
+
+  // Play the eco video as soon as the card appears
+  // Small delay matches the card reveal animation (0.9s)
+  if (ecoVideo) {
+    setTimeout(() => {
+      ecoVideo.play().catch(() => {
+        // Fallback: show a play button overlay if autoplay blocked
+        ecoVideo.controls = true;
+      });
+    }, 600);
+  }
+
   setTimeout(() => { if (blessing) blessing.classList.add('visible'); }, 900);
 }
 
