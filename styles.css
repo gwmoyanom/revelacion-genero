@@ -854,12 +854,111 @@ input[type=range]#volSlider::-webkit-slider-thumb {
   opacity: 0.85;
 }
 
-/* ── WhatsApp RSVP button ── */
+.rsvp-form {
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rsvp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.rsvp-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.rsvp-input {
+  background: rgba(45,18,5,0.6);
+  border: 1px solid #C17F3B55;
+  border-radius: 10px;
+  padding: 14px 18px;
+  color: var(--cream);
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  width: 100%;
+  backdrop-filter: blur(4px);
+}
+.rsvp-input::placeholder { color: rgba(253,240,213,0.3); }
+.rsvp-input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 14px #F5C84222;
+}
+
+/* Toggle button group */
+.rsvp-toggle-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.rsvp-toggle {
+  flex: 1;
+  padding: 12px 16px;
+  background: rgba(45,18,5,0.5);
+  border: 1px solid #C17F3B44;
+  border-radius: 10px;
+  color: var(--cream);
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  opacity: 0.6;
+}
+.rsvp-toggle:hover  { opacity: 0.85; }
+.rsvp-toggle.active {
+  opacity: 1;
+  border-color: var(--gold);
+  background: linear-gradient(135deg, rgba(45,18,5,0.8), rgba(193,127,59,0.2));
+  box-shadow: 0 0 14px #F5C84222;
+  color: var(--gold);
+}
+.rsvp-toggle.team-boy.active  { border-color: var(--sky-blue);  color: var(--sky-blue);  box-shadow: 0 0 14px #87CEEB33; }
+.rsvp-toggle.team-girl.active { border-color: var(--rose-pink); color: var(--rose-pink); box-shadow: 0 0 14px #FFB6C133; }
+
+/* Message preview box */
+.rsvp-preview {
+  background: rgba(245,200,66,0.06);
+  border: 1px dashed #F5C84244;
+  border-radius: 10px;
+  padding: 16px 20px;
+  text-align: left;
+}
+.rsvp-preview-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 8px;
+}
+.rsvp-preview-text {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--cream);
+  opacity: 0.8;
+  font-style: italic;
+}
+
+/* WhatsApp button */
 .whatsapp-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
-  margin-top: 8px;
   padding: 18px 44px;
   background: linear-gradient(135deg, #25D366, #128C7E);
   color: #fff;
@@ -872,8 +971,14 @@ input[type=range]#volSlider::-webkit-slider-thumb {
   border-radius: 50px;
   box-shadow: 0 8px 30px #25D36655;
   transition: all 0.3s ease;
+  opacity: 0.4;
+  pointer-events: none;
 }
-.whatsapp-btn:hover {
+.whatsapp-btn.ready {
+  opacity: 1;
+  pointer-events: auto;
+}
+.whatsapp-btn.ready:hover {
   transform: translateY(-4px);
   box-shadow: 0 14px 40px #25D36677;
 }
@@ -918,6 +1023,14 @@ footer {
   0%   { opacity:1; transform: translateY(0) rotate(0deg) scale(1); }
   100% { opacity:0; transform: translateY(60vh) rotate(720deg) scale(0.3); }
 }
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  20%      { transform: translateX(-8px); }
+  40%      { transform: translateX(8px); }
+  60%      { transform: translateX(-5px); }
+  80%      { transform: translateX(5px); }
+}
+.shake { animation: shake 0.45s ease; }
 
 /* ══════════════════════════════════
    RESPONSIVE
