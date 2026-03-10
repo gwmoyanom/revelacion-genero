@@ -246,11 +246,9 @@ function buildWhatsApp() {
   let msg = '';
   if (name) {
     msg += `Mi nombre es ${name}`;
-    if (hasCom)    msg += `, y voy con ${companion}`;
     msg += `! `;
-    if (teamLabel) msg += `Somos ${teamLabel}. `;
-    msg += hasCom ? `Confirmamos nuestra asistencia! 🦁👑`
-                  : `Confirmo mi asistencia! 🦁👑`;
+    if (teamLabel) msg += `Soy ${teamLabel}. `;
+    msg += `Confirmo mi asistencia! 🦁👑`;
   }
 
   // Update preview box
