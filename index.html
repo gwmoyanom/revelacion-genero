@@ -17,20 +17,14 @@
 <body>
 
   <!-- ══════════════ VIDEO BACKGROUND ══════════════
-       YouTube video of "Circle of Life" / African savannah.
-       autoplay=1&mute=1&loop=1&controls=0&playlist=<VIDEO_ID>
-       keeps it playing silently in a fixed layer behind everything.
+       Native HTML5 video: no ads, no iframes, instant load.
+       playsinline is required for autoplay on iOS Safari.
   ═══════════════════════════════════════════════════ -->
   <div id="video-bg">
-    <iframe
-      src="https://www.youtube.com/embed/5qYjzNv-WoA?autoplay=1&mute=1&loop=1&controls=0&playlist=5qYjzNv-WoA&rel=0&showinfo=0&modestbranding=1&iv_load_policy=3&disablekb=1"
-      title="Lion King Background"
-      allow="autoplay; encrypted-media"
-      allowfullscreen
-      loading="lazy">
-    </iframe>
+    <video autoplay muted loop playsinline preload="auto">
+      <source src="media/video.mp4" type="video/mp4">
+    </video>
   </div>
-  <!-- Semi-transparent dark overlay so content stays readable -->
   <div id="video-overlay"></div>
 
   <!-- Floating golden particles -->
@@ -43,13 +37,30 @@
     <p class="hero-subtitle">Revelación de Género · Wlad &amp; Samy</p>
     <div class="hero-divider"></div>
 
-    <div class="soundcloud-wrap">
-      <iframe
-        width="80%" height="100"
-        scrolling="no" frameborder="no" allow="autoplay"
-        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A629110608&color=%23573515&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
-      </iframe>
-      <p class="music-label">🎵 El Rey León · Música oficial</p>
+    <!-- Custom audio player -->
+    <div class="music-player">
+      <audio id="bgMusic" loop preload="auto">
+        <source src="media/song.mp3" type="audio/mpeg">
+      </audio>
+      <div class="music-player-inner">
+        <button class="music-play-btn" id="playBtn" onclick="toggleMusic()" aria-label="Reproducir música">
+          <span class="play-icon" id="playIcon">▶</span>
+          <div class="music-rings">
+            <span></span><span></span><span></span>
+          </div>
+        </button>
+        <div class="music-info">
+          <div class="music-title">El Círculo de la Vida</div>
+          <div class="music-bars" id="musicBars">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+        <div class="music-vol">
+          <input type="range" id="volSlider" min="0" max="1" step="0.05" value="0.6"
+                 oninput="setVolume(this.value)" aria-label="Volumen" />
+          <span class="vol-icon">🔊</span>
+        </div>
+      </div>
     </div>
 
     <div class="scroll-hint">⬇</div>
@@ -280,7 +291,7 @@
       <p class="section-eyebrow">✅ Confirmación</p>
       <h2 class="section-title">¡Confirma tu Llegada al Reino!</h2>
       <p class="rsvp-note">
-        Por favor confirma tu asistencia antes del <strong>11 de Marzo de 2026</strong>
+        Por favor confirma tu asistencia antes del <strong>12 de Marzo de 2026</strong>
         para poder preparar todo con amor. 🦁
       </p>
 
