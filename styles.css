@@ -16,7 +16,141 @@
   --overlay-dark:  rgba(10, 3, 0, 0.72);
 }
 
-/* ── RESET ── */
+/* ══════════════════════════════════
+   SPLASH SCREEN
+══════════════════════════════════ */
+#splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Savannah background on the splash */
+#splash-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(10,3,0,0.45) 0%, rgba(26,10,0,0.75) 100%),
+    url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1600&q=80')
+    center / cover no-repeat;
+  animation: splashBreath 5s ease-in-out infinite;
+}
+@keyframes splashBreath {
+  0%,100% { transform: scale(1);    filter: brightness(1); }
+  50%      { transform: scale(1.04); filter: brightness(1.08); }
+}
+
+#splash-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 40px 24px;
+  animation: fadeIn 1.2s ease both;
+}
+
+.splash-paws {
+  font-size: 2rem;
+  letter-spacing: 14px;
+  color: var(--gold);
+  margin-bottom: 20px;
+  animation: fadeDown 1s ease 0.2s both;
+}
+
+.splash-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(2.8rem, 9vw, 6rem);
+  font-weight: 900;
+  color: var(--gold);
+  text-shadow: 0 0 60px #F5C84288, 0 4px 30px #8B3A1A;
+  line-height: 1.1;
+  animation: fadeDown 1.2s ease 0.3s both;
+}
+
+.splash-sub {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.85rem, 2.2vw, 1.15rem);
+  color: var(--cream);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: 14px;
+  opacity: 0.85;
+  animation: fadeDown 1.2s ease 0.5s both;
+}
+
+.splash-divider {
+  margin: 28px auto;
+  width: 180px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  animation: fadeIn 1.5s ease 0.7s both;
+}
+
+/* Glowing enter button */
+.splash-enter {
+  position: relative;
+  display: inline-block;
+  margin: 8px auto 20px;
+  animation: fadeUp 1.2s ease 0.9s both;
+}
+
+.splash-enter-glow {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50px;
+  background: radial-gradient(ellipse, #F5C84233, transparent 70%);
+  animation: glowPulse 2s ease-in-out infinite;
+}
+@keyframes glowPulse {
+  0%,100% { opacity: 0.5; transform: scale(1); }
+  50%      { opacity: 1;   transform: scale(1.1); }
+}
+
+.splash-enter-text {
+  position: relative;
+  display: inline-block;
+  padding: 16px 44px;
+  border: 1.5px solid var(--gold);
+  border-radius: 50px;
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: linear-gradient(135deg, rgba(45,18,5,0.6), rgba(139,58,26,0.3));
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+#splash:hover .splash-enter-text {
+  background: linear-gradient(135deg, rgba(245,200,66,0.2), rgba(193,127,59,0.3));
+  box-shadow: 0 0 30px #F5C84244;
+  letter-spacing: 6px;
+}
+
+.splash-hint {
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--amber);
+  opacity: 0.6;
+  animation: fadeIn 2s ease 1.2s both;
+}
+
+/* Splash exit animation */
+#splash.hiding {
+  animation: splashExit 1s ease forwards;
+}
+@keyframes splashExit {
+  0%   { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.08); pointer-events: none; }
+}
+
+
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
