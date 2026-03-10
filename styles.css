@@ -21,19 +21,25 @@
 ══════════════════════════════════ */
 #splash {
   position: fixed;
-  inset: 0;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* Fallback for Android Chrome where 100vh can be unreliable */
+  min-height: -webkit-fill-available;
   z-index: 9999;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Savannah background on the splash */
 #splash-bg {
   position: absolute;
-  inset: 0;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   background:
     linear-gradient(to bottom, rgba(10,3,0,0.45) 0%, rgba(26,10,0,0.75) 100%),
     url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1600&q=80')
@@ -50,6 +56,12 @@
   z-index: 1;
   text-align: center;
   padding: 40px 24px;
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   animation: fadeIn 1.2s ease both;
 }
 
@@ -124,9 +136,11 @@
   color: var(--gold);
   background: linear-gradient(135deg, rgba(45,18,5,0.6), rgba(139,58,26,0.3));
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   transition: all 0.3s ease;
 }
-#splash:hover .splash-enter-text {
+#splash:hover .splash-enter-text,
+#splash:active .splash-enter-text {
   background: linear-gradient(135deg, rgba(245,200,66,0.2), rgba(193,127,59,0.3));
   box-shadow: 0 0 30px #F5C84244;
   letter-spacing: 6px;
@@ -143,21 +157,28 @@
 
 /* Splash exit animation */
 #splash.hiding {
-  animation: splashExit 1s ease forwards;
+  animation: splashExit 0.9s ease forwards;
+  pointer-events: none;
 }
 @keyframes splashExit {
   0%   { opacity: 1; transform: scale(1); }
-  100% { opacity: 0; transform: scale(1.08); pointer-events: none; }
+  100% { opacity: 0; transform: scale(1.06); }
 }
 
 
+
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  height: -webkit-fill-available;
+}
 body {
   font-family: 'Lora', serif;
   background: var(--deep);
   color: var(--cream);
   overflow-x: hidden;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
 }
 
 /* ══════════════════════════════════
