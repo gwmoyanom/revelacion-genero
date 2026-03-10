@@ -128,7 +128,90 @@ function setVolume(val) {
   animate();
 })();
 
-/* ── SCROLL REVEAL ── */
+/* ── AUTO-SCROLL (sección por sección) ── */
+(function () {
+  const SECTION_DELAY  = 4500;  // ms entre secciones
+  const RESUME_AFTER   = 6000;  // ms de inactividad antes de retomar
+  const sections = () => Array.from(document.querySelectorAll(
+    '#hero, #parents, #reveal, #details, #location, #itinerary, #dresscode, #gifts, #rsvp'
+  ));
+
+  let currentIdx   = 0;
+  let autoTimer    = null;
+  let resumeTimer  = null;
+  let paused       = false;
+  let started      = false;
+
+  function scrollToSection(idx) {
+    const els = sections();
+    if (idx >= els.length) return; // reached the end, stop
+    currentIdx = idx;
+    els[idx].scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function scheduleNext() {
+    clearTimeout(autoTimer);
+    autoTimer = setTimeout(() => {
+      if (!paused) {
+        scrollToSection(currentIdx + 1);
+        scheduleNext();
+      }
+    }, SECTION_DELAY);
+  }
+
+  function pauseAutoScroll() {
+    paused = true;
+    clearTimeout(autoTimer);
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(() => {
+      paused = false;
+      // Detect which section the user is currently on after manual scroll
+      detectCurrentSection();
+      scheduleNext();
+    }, RESUME_AFTER);
+  }
+
+  function detectCurrentSection() {
+    const els = sections();
+    const mid = window.innerHeight / 2;
+    els.forEach((el, i) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top <= mid && rect.bottom >= mid) currentIdx = i;
+    });
+  }
+
+  // Start auto-scroll only after the splash is dismissed
+  // We watch for the splash element to be removed from the DOM
+  const splashObserver = new MutationObserver(() => {
+    if (!document.getElementById('splash') && !started) {
+      started = true;
+      splashObserver.disconnect();
+      // Small delay so the hero has time to settle
+      setTimeout(() => {
+        scheduleNext();
+      }, 2000);
+    }
+  });
+  splashObserver.observe(document.body, { childList: true });
+
+  // Pause on any user scroll interaction
+  let scrollTimeout;
+  window.addEventListener('scroll', () => {
+    if (!started) return;
+    clearTimeout(scrollTimeout);
+    // Debounce: only trigger pause after scroll settles briefly
+    scrollTimeout = setTimeout(() => {
+      pauseAutoScroll();
+    }, 150);
+  }, { passive: true });
+
+  // Pause on touch (mobile swipe)
+  window.addEventListener('touchstart', () => {
+    if (started) pauseAutoScroll();
+  }, { passive: true });
+
+})();
+
 const scrollObserver = new IntersectionObserver(
   (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
   { threshold: 0.12 }
@@ -260,9 +343,11 @@ function buildWhatsApp() {
   let msg = '';
   if (name) {
     msg += `Mi nombre es ${name}`;
+    if (hasCom)    msg += `, y voy con ${companion}`;
     msg += `! `;
-    if (teamLabel) msg += `Soy ${teamLabel}. `;
-    msg += `Confirmo mi asistencia! 🦁👑`;
+    if (teamLabel) msg += `Somos ${teamLabel}. `;
+    msg += hasCom ? `Confirmamos nuestra asistencia! 🦁👑`
+                  : `Confirmo mi asistencia! 🦁👑`;
   }
 
   // Update preview box
