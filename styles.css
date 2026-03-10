@@ -37,17 +37,14 @@ body {
   overflow: hidden;
 }
 
-#video-bg iframe {
-  /* Scale the iframe so the video fills the screen regardless of aspect ratio */
+#video-bg video {
   position: absolute;
   top: 50%; left: 50%;
-  width: 100vw;
-  height: 56.25vw;   /* 16:9 ratio */
-  min-height: 100vh;
-  min-width: 177.78vh; /* 16:9 ratio */
+  min-width: 100%;
+  min-height: 100%;
+  width: auto; height: auto;
   transform: translate(-50%, -50%);
-  pointer-events: none;
-  border: none;
+  object-fit: cover;
 }
 
 /* Dark tinted overlay over the video — sits between video and content */
@@ -142,23 +139,142 @@ section {
   animation: fadeIn 1.5s ease 0.6s both;
 }
 
-.soundcloud-wrap {
+.music-player {
   animation: fadeUp 1.2s ease 0.8s both;
   width: 100%;
-  max-width: 560px;
+  max-width: 480px;
   margin: 0 auto 12px;
 }
-.soundcloud-wrap iframe {
-  border-radius: 12px;
-  box-shadow: 0 8px 40px #0008;
+
+.music-player-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: linear-gradient(135deg, rgba(45,18,5,0.75), rgba(139,58,26,0.45));
+  border: 1px solid #C17F3B55;
+  border-radius: 60px;
+  padding: 14px 24px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 40px #0006, 0 0 20px #C17F3B22;
 }
 
-.music-label {
+/* Play/Pause button */
+.music-play-btn {
+  position: relative;
+  width: 52px; height: 52px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  background: linear-gradient(135deg, var(--sienna), var(--orange));
+  color: var(--gold);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 18px #F5C84244;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+.music-play-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 28px #F5C84277;
+}
+.play-icon { position: relative; z-index: 1; }
+
+/* Ripple rings on the button when playing */
+.music-rings span {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  opacity: 0;
+  width: 100%; height: 100%;
+}
+.music-rings span:nth-child(1) { animation: ring 2s ease-out infinite 0s; }
+.music-rings span:nth-child(2) { animation: ring 2s ease-out infinite 0.6s; }
+.music-rings span:nth-child(3) { animation: ring 2s ease-out infinite 1.2s; }
+.music-play-btn.paused .music-rings span { animation: none; }
+
+@keyframes ring {
+  0%   { transform: scale(1);   opacity: 0.7; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* Song info + visualizer bars */
+.music-info {
+  flex: 1;
+  text-align: left;
+}
+.music-title {
+  font-family: 'Cinzel', serif;
   font-size: 0.8rem;
-  color: var(--amber);
+  color: var(--gold);
   letter-spacing: 2px;
   text-transform: uppercase;
-  margin-top: 6px;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Animated equalizer bars */
+.music-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 20px;
+}
+.music-bars span {
+  display: block;
+  width: 4px;
+  background: var(--amber);
+  border-radius: 2px;
+  animation: bar 0.8s ease-in-out infinite alternate;
+  transform-origin: bottom;
+}
+.music-bars span:nth-child(1) { animation-duration: 0.7s; animation-delay: 0.0s; }
+.music-bars span:nth-child(2) { animation-duration: 0.5s; animation-delay: 0.1s; }
+.music-bars span:nth-child(3) { animation-duration: 0.9s; animation-delay: 0.2s; }
+.music-bars span:nth-child(4) { animation-duration: 0.6s; animation-delay: 0.05s; }
+.music-bars span:nth-child(5) { animation-duration: 0.8s; animation-delay: 0.15s; }
+
+@keyframes bar {
+  from { height: 4px;  opacity: 0.5; }
+  to   { height: 18px; opacity: 1; }
+}
+
+/* Bars stop when paused */
+.music-bars.paused span { animation: none; height: 4px; opacity: 0.3; }
+
+/* Volume control */
+.music-vol {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.vol-icon { font-size: 1rem; }
+
+input[type=range]#volSlider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 70px;
+  height: 4px;
+  background: linear-gradient(to right, var(--gold) 60%, #ffffff33 60%);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+input[type=range]#volSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 6px #F5C84299;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .music-vol { display: none; }
+  .music-player-inner { padding: 12px 18px; }
 }
 
 .scroll-hint {
