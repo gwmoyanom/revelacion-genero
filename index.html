@@ -16,6 +16,25 @@
 </head>
 <body>
 
+  <!-- ══════════════ SPLASH SCREEN ══════════════
+       Shown on load — one tap starts audio and reveals the page.
+       This is the only reliable cross-browser way to autoplay audio.
+  ═══════════════════════════════════════════════ -->
+  <div id="splash" onclick="enterSite()">
+    <div id="splash-bg"></div>
+    <div id="splash-content">
+      <div class="splash-paws">🐾 🦁 🐾</div>
+      <h1 class="splash-title">Wlad &amp; Samy</h1>
+      <p class="splash-sub">te invitan a una celebración muy especial</p>
+      <div class="splash-divider"></div>
+      <div class="splash-enter">
+        <span class="splash-enter-glow"></span>
+        <span class="splash-enter-text">✨ Toca para entrar ✨</span>
+      </div>
+      <p class="splash-hint">El Círculo de la Vida · Revelación de Género 2026</p>
+    </div>
+  </div>
+
   <!-- ══════════════ VIDEO BACKGROUND ══════════════
        Native HTML5 video: no ads, no iframes, instant load.
        playsinline is required for autoplay on iOS Safari.
@@ -33,7 +52,7 @@
   <!-- ══════════════ HERO ══════════════ -->
   <section id="hero">
     <div class="hero-paws">🐾 🦁 🐾</div>
-    <h1 class="hero-title">Un Nuevo Cachorro<br>Está en Camino</h1>
+    <h1 class="hero-title">Nuestro Bebito<br>Está en Camino</h1>
     <p class="hero-subtitle">Revelación de Género · Wlad &amp; Samy</p>
     <div class="hero-divider"></div>
 
