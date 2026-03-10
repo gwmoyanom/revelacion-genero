@@ -8,20 +8,36 @@ function enterSite() {
   const splash = document.getElementById('splash');
   const audio  = document.getElementById('bgMusic');
 
-  // Start audio — this works because it's inside a direct user gesture (click/tap)
-  if (audio) {
-    audio.volume = 0.6;
-    audio.play().then(() => setPlayingState(true)).catch(() => setPlayingState(false));
-  }
-
-  // Animate splash out, then remove from DOM
+  if (!splash || splash.classList.contains('hiding')) return;
   splash.classList.add('hiding');
+
+  // Small delay lets the browser register the gesture before .play()
+  // This is key for Android Chrome which is stricter than iOS Safari
+  setTimeout(() => {
+    if (audio) {
+      audio.volume = 0.6;
+      audio.play()
+        .then(() => setPlayingState(true))
+        .catch(() => setPlayingState(false));
+    }
+  }, 80);
+
   splash.addEventListener('animationend', () => {
     splash.remove();
-    // Scroll to top just in case
     window.scrollTo(0, 0);
   }, { once: true });
 }
+
+// Also listen for touchstart as a fallback for Android (fires before click)
+document.addEventListener('DOMContentLoaded', () => {
+  const splash = document.getElementById('splash');
+  if (splash) {
+    splash.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      enterSite();
+    }, { passive: false });
+  }
+});
 
 /* ── MUSIC PLAYER state helpers ── */
 
