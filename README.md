@@ -1,213 +1,258 @@
-🎉 Interactive Gender Reveal Invitation
+# 🎉 Interactive Gender Reveal Invitation
 
-An interactive web invitation for a baby's gender reveal event.
-This project allows guests to visit a webpage, interact with the invitation, and discover the baby's gender in a fun and memorable way.
+![GitHub repo
+size](https://img.shields.io/github/repo-size/gwmoyanom/revelacion-genero)\
+![GitHub
+stars](https://img.shields.io/github/stars/gwmoyanom/revelacion-genero?style=social)\
+![GitHub
+forks](https://img.shields.io/github/forks/gwmoyanom/revelacion-genero?style=social)\
+![License](https://img.shields.io/badge/license-MIT-green)
 
-Perfect for sharing with family and friends through a simple link.
+A **fun and interactive web invitation** for a baby's gender reveal
+event.
 
-✨ Features
+Instead of sending a static invitation, guests receive a **link to an
+interactive webpage** where they can participate in the reveal
+experience.
 
-🎈 Interactive gender reveal experience
+Perfect for sharing through:
 
-📱 Mobile-friendly design
+-   WhatsApp\
+-   Instagram\
+-   Email\
+-   Family group chats
 
-⚡ Lightweight static web project
+------------------------------------------------------------------------
 
-🌐 Easy deployment (GitHub Pages, Netlify, etc.)
+# ✨ Features
 
-🎉 Fun reveal animation / interaction
+🎈 Interactive reveal experience\
+📱 Mobile-friendly design\
+⚡ Fast static website (no backend required)\
+🌐 Easy deployment with GitHub Pages\
+🎨 Easy to customize colors and text\
+💌 Perfect for digital invitations
 
-Gender reveal events are popular celebrations where parents share the baby's sex with friends and family in a creative way.
+------------------------------------------------------------------------
 
-📸 Demo
+# 🎥 Demo
 
-You can host it using GitHub Pages or any static hosting service.
+Once deployed, your invitation will look like an **interactive
+celebration page** where guests discover the baby's gender.
 
-Example:
+Example link structure:
 
-https://yourusername.github.io/revelacion-genero
-🚀 Getting Started
-1️⃣ Clone the repository
-git clone https://github.com/gwmoyanom/revelacion-genero.git
-2️⃣ Navigate to the project
-cd revelacion-genero
-3️⃣ Open the project
+    https://yourusername.github.io/revelacion-genero
 
-Simply open the index.html file in your browser.
+You can send that link directly to your guests.
 
-index.html
+------------------------------------------------------------------------
 
-No build tools or dependencies are required.
+# 📸 Preview (Optional but recommended)
 
-🌍 Deploy with GitHub Pages
-
-Go to Repository Settings
-
-Navigate to Pages
-
-Select:
-
-Source: Deploy from branch
-Branch: main
-Folder: /root
-
-Your invitation will be available at:
-
-https://yourusername.github.io/revelacion-genero
-🛠 Tech Stack
-
-HTML5
-
-CSS3
-
-JavaScript (Vanilla)
-
-This is a fully static project, meaning it does not require a backend or server.
-
-🎯 Use Cases
-
-Baby gender reveal invitations
-
-Interactive baby shower invitations
-
-Family announcement pages
-
-Personal celebration websites
-
-📂 Project Structure
-revelacion-genero
-│
-├── index.html
-├── style.css
-├── script.js
-└── assets/
-🤝 Contributing
-
-Contributions are welcome!
-
-If you have ideas for improvements (animations, themes, music, etc.), feel free to:
-
-Fork the repository
-
-Create a branch
-
-Submit a Pull Request
-
-📜 License
-
-This project is open source and available under the MIT License.
-
-❤️ Author
-
-Created by Gustavo Moyano
-
-GitHub:
-https://github.com/gwmoyanom
-
-💡 Tip: Share the link with your guests before the event so everyone can enjoy the reveal together.🎉 Interactive Gender Reveal Invitation
-
-An interactive web invitation for a baby's gender reveal event.
-This project allows guests to visit a webpage, interact with the invitation, and discover the baby's gender in a fun and memorable way.
-
-Perfect for sharing with family and friends through a simple link.
-
-✨ Features
-
-🎈 Interactive gender reveal experience
-
-📱 Mobile-friendly design
-
-⚡ Lightweight static web project
-
-🌐 Easy deployment (GitHub Pages, Netlify, etc.)
-
-🎉 Fun reveal animation / interaction
-
-Gender reveal events are popular celebrations where parents share the baby's sex with friends and family in a creative way.
-
-📸 Demo
-
-You can host it using GitHub Pages or any static hosting service.
+You can add a screenshot here later.
 
 Example:
 
-https://yourusername.github.io/revelacion-genero
-🚀 Getting Started
-1️⃣ Clone the repository
+    /assets/preview.png
+
+Then include it like this:
+
+``` markdown
+![Preview](assets/preview.png)
+```
+
+------------------------------------------------------------------------
+
+# 🚀 Quick Start
+
+## 1. Clone the repository
+
+``` bash
 git clone https://github.com/gwmoyanom/revelacion-genero.git
-2️⃣ Navigate to the project
+```
+
+## 2. Enter the project folder
+
+``` bash
 cd revelacion-genero
-3️⃣ Open the project
+```
 
-Simply open the index.html file in your browser.
+## 3. Open the invitation
 
-index.html
+Simply open:
 
-No build tools or dependencies are required.
+    index.html
 
-🌍 Deploy with GitHub Pages
+in your browser.
 
-Go to Repository Settings
+No installation or dependencies required.
 
-Navigate to Pages
+------------------------------------------------------------------------
+
+# 🌍 Deploy to GitHub Pages (Recommended)
+
+You can host your invitation **for free** using GitHub Pages.
+
+### Step 1
+
+Go to:
+
+    Repository → Settings → Pages
+
+### Step 2
 
 Select:
 
-Source: Deploy from branch
-Branch: main
-Folder: /root
+    Source: Deploy from branch
+    Branch: main
+    Folder: / (root)
 
-Your invitation will be available at:
+### Step 3
 
-https://yourusername.github.io/revelacion-genero
-🛠 Tech Stack
+Save.
 
-HTML5
+Your invitation will be live at:
 
-CSS3
+    https://gwmoyanom.github.io/revelacion-genero
 
-JavaScript (Vanilla)
+Perfect to share with family and friends.
 
-This is a fully static project, meaning it does not require a backend or server.
+------------------------------------------------------------------------
 
-🎯 Use Cases
+# 🛠 Tech Stack
 
-Baby gender reveal invitations
+This project uses a **simple and lightweight stack**:
 
-Interactive baby shower invitations
+-   **HTML5**
+-   **CSS3**
+-   **Vanilla JavaScript**
 
-Family announcement pages
+No frameworks.\
+No backend.\
+No build tools.
 
-Personal celebration websites
+Which means it runs **anywhere**.
 
-📂 Project Structure
-revelacion-genero
-│
-├── index.html
-├── style.css
-├── script.js
-└── assets/
-🤝 Contributing
+------------------------------------------------------------------------
 
-Contributions are welcome!
+# 📂 Project Structure
 
-If you have ideas for improvements (animations, themes, music, etc.), feel free to:
+    revelacion-genero
+    │
+    ├── index.html        # Main invitation page
+    ├── styles.css        # Page styling
+    ├── script.js         # Interaction logic
+    │
+    └── assets/
+        ├── images
+        └── animations
 
-Fork the repository
+------------------------------------------------------------------------
 
-Create a branch
+# 🎨 Customizing the Invitation
 
-Submit a Pull Request
+You can easily personalize the invitation.
 
-📜 License
+### Change the names
 
-This project is open source and available under the MIT License.
+Edit in:
 
-❤️ Author
+    index.html
 
-Created by Gustavo Moyano
+Example:
 
-GitHub:
+``` html
+<h1>We are expecting a baby!</h1>
+```
+
+### Change colors
+
+Modify the styles in:
+
+    styles.css
+
+For example:
+
+-   pink / blue\
+-   gold / white\
+-   pastel theme
+
+### Add music
+
+You can add background music like this:
+
+``` html
+<audio autoplay loop>
+  <source src="assets/music.mp3" type="audio/mpeg">
+</audio>
+```
+
+------------------------------------------------------------------------
+
+# 💡 Ideas for Improvements
+
+Future enhancements could include:
+
+-   🎵 Background music\
+-   🎆 Confetti animation\
+-   📊 Guess the gender voting\
+-   ⏱ Countdown to reveal\
+-   📷 Photo gallery\
+-   💬 Guest messages
+
+Pull requests are welcome!
+
+------------------------------------------------------------------------
+
+# 🤝 Contributing
+
+If you'd like to improve the project:
+
+1.  Fork the repo\
+2.  Create a feature branch
+
+```{=html}
+<!-- -->
+```
+    git checkout -b feature/amazing-feature
+
+3.  Commit changes
+
+```{=html}
+<!-- -->
+```
+    git commit -m "Add amazing feature"
+
+4.  Push the branch
+
+```{=html}
+<!-- -->
+```
+    git push origin feature/amazing-feature
+
+5.  Open a Pull Request
+
+------------------------------------------------------------------------
+
+# 📜 License
+
+This project is licensed under the **MIT License**.
+
+------------------------------------------------------------------------
+
+# 👨‍💻 Author
+
+**Gustavo Moyano**
+
+GitHub:\
 https://github.com/gwmoyanom
 
-💡 Tip: Share the link with your guests before the event so everyone can enjoy the reveal together.
+------------------------------------------------------------------------
+
+# ❤️ Final Note
+
+This project was created to make a **special life moment more
+memorable**.
+
+If you use it for your own reveal, feel free to ⭐ the repository!
